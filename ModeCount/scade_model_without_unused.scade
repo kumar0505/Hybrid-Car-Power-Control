@@ -1,0 +1,224 @@
+
+type
+   #pragma ed <Type oid="!ed/28/4EBC/2708/5ec378877c01"/>
+#end
+
+int = int8;
+
+node #pragma ed <Operator oid="!ed/144/4EBC/2708/5ec37f6d35a2">
+	<diagrams>
+		<NetDiagram name="ModCount_1" landscape="true" format="A4 (210 297)" oid="!ed/145/4EBC/2708/5ec37f6d1f04">
+			<presentationElements>
+				<EquationGE presentable="!ed/1ba/4EBC/2708/5ec380546bd">
+					<position>
+						<Point x="17674" y="2725"/>
+					</position>
+					<size>
+						<Size width="318" height="503"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/18b/4EBC/2708/5ec380112808" dstEquation="!ed/1d5/4EBC/2708/5ec380971c25">
+					<positions>
+						<Point x="14949" y="2990"/>
+						<Point x="16193" y="2990"/>
+						<Point x="16193" y="6085"/>
+						<Point x="15558" y="6085"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/18b/4EBC/2708/5ec380112808" dstEquation="!ed/1ba/4EBC/2708/5ec380546bd">
+					<positions>
+						<Point x="14949" y="2990"/>
+						<Point x="16325" y="2990"/>
+						<Point x="16325" y="2990"/>
+						<Point x="17727" y="2990"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="2" srcEquation="!ed/195/4EBC/2708/5ec3801d3ef" dstEquation="!ed/18b/4EBC/2708/5ec380112808">
+					<positions>
+						<Point x="12991" y="3810"/>
+						<Point x="13467" y="3810"/>
+						<Point x="13467" y="3175"/>
+						<Point x="13944" y="3175"/>
+					</positions>
+				</Edge>
+				<EquationGE presentable="!ed/18b/4EBC/2708/5ec380112808">
+					<position>
+						<Point x="13936" y="2400"/>
+					</position>
+					<size>
+						<Size width="1021" height="1153"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/16f/4EBC/2708/5ec37fdd3bbd" dstEquation="!ed/18b/4EBC/2708/5ec380112808">
+					<positions>
+						<Point x="11959" y="2805"/>
+						<Point x="12938" y="2805"/>
+						<Point x="12938" y="2778"/>
+						<Point x="13944" y="2778"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="3" srcEquation="!ed/1d5/4EBC/2708/5ec380971c25" dstEquation="!ed/16f/4EBC/2708/5ec37fdd3bbd">
+					<positions>
+						<Point x="14208" y="6085"/>
+						<Point x="10319" y="6085"/>
+						<Point x="10319" y="3387"/>
+						<Point x="10266" y="3387"/>
+						<Point x="10266" y="2963"/>
+						<Point x="10954" y="2963"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/179/4EBC/2708/5ec37fe7b41" dstEquation="!ed/16f/4EBC/2708/5ec37fdd3bbd">
+					<positions>
+						<Point x="10319" y="1561"/>
+						<Point x="11456" y="1561"/>
+						<Point x="11456" y="2302"/>
+					</positions>
+				</Edge>
+				<EquationGE presentable="!ed/16f/4EBC/2708/5ec37fdd3bbd">
+					<position>
+						<Point x="10954" y="2302"/>
+					</position>
+					<size>
+						<Size width="1005" height="979"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/14a/4EBC/2708/5ec37f8e7aa8" dstEquation="!ed/15c/4EBC/2708/5ec37f971268">
+					<positions>
+						<Point x="6244" y="2487"/>
+						<Point x="7197" y="2487"/>
+						<Point x="7197" y="2487"/>
+						<Point x="8176" y="2487"/>
+					</positions>
+				</Edge>
+				<EquationGE kind="OBJ_LIT" presentable="!ed/14a/4EBC/2708/5ec37f8e7aa8">
+					<position>
+						<Point x="6033" y="2328"/>
+					</position>
+					<size>
+						<Size width="211" height="318"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/15c/4EBC/2708/5ec37f971268">
+					<position>
+						<Point x="8176" y="2275"/>
+					</position>
+					<size>
+						<Size width="1005" height="662"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="2" srcEquation="!ed/1d5/4EBC/2708/5ec380971c25" dstEquation="!ed/15c/4EBC/2708/5ec37f971268">
+					<positions>
+						<Point x="14208" y="6085"/>
+						<Point x="6932" y="6085"/>
+						<Point x="6932" y="2725"/>
+						<Point x="8176" y="2725"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="2" srcEquation="!ed/15c/4EBC/2708/5ec37f971268" dstEquation="!ed/16f/4EBC/2708/5ec37fdd3bbd">
+					<positions>
+						<Point x="9181" y="2619"/>
+						<Point x="10054" y="2619"/>
+						<Point x="10054" y="2619"/>
+						<Point x="10954" y="2619"/>
+					</positions>
+				</Edge>
+				<EquationGE kind="OBJ_LIT" presentable="!ed/179/4EBC/2708/5ec37fe7b41">
+					<position>
+						<Point x="10107" y="1402"/>
+					</position>
+					<size>
+						<Size width="212" height="318"/>
+					</size>
+				</EquationGE>
+				<EquationGE kind="OBJ_LIT" presentable="!ed/195/4EBC/2708/5ec3801d3ef">
+					<position>
+						<Point x="12779" y="3651"/>
+					</position>
+					<size>
+						<Size width="212" height="317"/>
+					</size>
+				</EquationGE>
+				<EquationGE rotation="180" presentable="!ed/1d5/4EBC/2708/5ec380971c25">
+					<position>
+						<Point x="14208" y="5450"/>
+					</position>
+					<size>
+						<Size width="1339" height="1259"/>
+					</size>
+				</EquationGE>
+			</presentationElements>
+		</NetDiagram>
+	</diagrams>
+</Operator>
+#end
+
+ModCount()
+returns (
+      #pragma ed    <Variable oid="!ed/1b9/4EBC/2708/5ec380545729"/>
+#end
+
+Count : int)
+var
+      #pragma ed    <Variable oid="!ed/1d6/4EBC/2708/5ec3809735aa"/>
+#end
+
+_L7 : int8;
+      #pragma ed    <Variable oid="!ed/196/4EBC/2708/5ec3801d66a0"/>
+#end
+
+_L6 : int;
+      #pragma ed    <Variable oid="!ed/18c/4EBC/2708/5ec380114108"/>
+#end
+
+_L5 : int8;
+      #pragma ed    <Variable oid="!ed/17a/4EBC/2708/5ec37fe76b42"/>
+#end
+
+_L4 : bool;
+      #pragma ed    <Variable oid="!ed/170/4EBC/2708/5ec37fdd53eb"/>
+#end
+
+_L3 : int8;
+      #pragma ed    <Variable oid="!ed/15d/4EBC/2708/5ec37f97265f"/>
+#end
+
+_L2 : int8;
+      #pragma ed    <Variable oid="!ed/14b/4EBC/2708/5ec37f8e5984"/>
+#end
+
+_L1 : int;
+let
+   #pragma ed    <Equation oid="!ed/1d5/4EBC/2708/5ec380971c25"/>
+#end
+
+   _L7 =  #1 fby(_L5; 1; 0);
+   #pragma ed    <Equation oid="!ed/1ba/4EBC/2708/5ec380546bd"/>
+#end
+
+   Count = _L5;
+   #pragma ed    <Equation oid="!ed/195/4EBC/2708/5ec3801d3ef"/>
+#end
+
+   _L6 = 6;
+   #pragma ed    <Equation oid="!ed/18b/4EBC/2708/5ec380112808"/>
+#end
+
+   _L5 = _L3 #1  mod _L6;
+   #pragma ed    <Equation oid="!ed/179/4EBC/2708/5ec37fe7b41"/>
+#end
+
+   _L4 = true;
+   #pragma ed    <Equation oid="!ed/16f/4EBC/2708/5ec37fdd3bbd"/>
+#end
+
+   _L3 =  #1 if _L4 then (_L2) else (_L7);
+   #pragma ed    <Equation oid="!ed/15c/4EBC/2708/5ec37f971268"/>
+#end
+
+   _L2 = _L1 #1  + _L7;
+   #pragma ed    <Equation oid="!ed/14a/4EBC/2708/5ec37f8e7aa8"/>
+#end
+
+   _L1 = 1;
+tel
+

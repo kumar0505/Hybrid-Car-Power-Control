@@ -1,0 +1,86 @@
+$**************  SCADETOC Version 2019 R3 (build 20190802) **************
+** Generation date: 2020-06-09T13:17:56
+** Command: scade -code "D:\Hybrid_Car\Hybrid_Car.etp" -root HybridCar_SM -conf KCG
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file D:\Hybrid_Car\KCG\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file D:\Hybrid_Car\KCG\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file D:\Hybrid_Car\KCG\HybridCar_SM.c, line 0, character 0
+ ~HybridCar_SM.c
+  at file D:\Hybrid_Car\KCG\BatteryLevel.c, line 0, character 0
+ ~BatteryLevel.c
+  at file D:\Hybrid_Car\KCG\DynamicControl.c, line 0, character 0
+ ~DynamicControl.c
+  at file D:\Hybrid_Car\KCG\Shaper.c, line 0, character 0
+ ~Shaper.c
+  at file D:\Hybrid_Car\KCG\Limiter.c, line 0, character 0
+ ~Limiter.c
+  at file D:\Hybrid_Car\KCG\ElectronicPower.c, line 0, character 0
+ ~ElectronicPower.c
+  at file D:\Hybrid_Car\KCG\Inverter.c, line 0, character 0
+ ~Inverter.c
+  at file D:\Hybrid_Car\KCG\ThreePhaseConverter.c, line 0, character 0
+ ~ThreePhaseConverter.c
+  at file D:\Hybrid_Car\KCG\ModCount.c, line 0, character 0
+ ~ModCount.c
+  at file D:\Hybrid_Car\KCG\BoostConverter.c, line 0, character 0
+ ~BoostConverter.c
+  at file D:\Hybrid_Car\KCG\Command.c, line 0, character 0
+ ~Command.c
+  at file D:\Hybrid_Car\KCG\Rectifier.c, line 0, character 0
+ ~Rectifier.c
+  at file D:\Hybrid_Car\KCG\Max3_math_float32.c, line 0, character 0
+ ~Max3_math_float32.c
+  at file D:\Hybrid_Car\KCG\HybridCar_SM.h, line 0, character 0
+ ~HybridCar_SM.h
+  at file D:\Hybrid_Car\KCG\BatteryLevel.h, line 0, character 0
+ ~BatteryLevel.h
+  at file D:\Hybrid_Car\KCG\DynamicControl.h, line 0, character 0
+ ~DynamicControl.h
+  at file D:\Hybrid_Car\KCG\Shaper.h, line 0, character 0
+ ~Shaper.h
+  at file D:\Hybrid_Car\KCG\Limiter.h, line 0, character 0
+ ~Limiter.h
+  at file D:\Hybrid_Car\KCG\ElectronicPower.h, line 0, character 0
+ ~ElectronicPower.h
+  at file D:\Hybrid_Car\KCG\Inverter.h, line 0, character 0
+ ~Inverter.h
+  at file D:\Hybrid_Car\KCG\ThreePhaseConverter.h, line 0, character 0
+ ~ThreePhaseConverter.h
+  at file D:\Hybrid_Car\KCG\ModCount.h, line 0, character 0
+ ~ModCount.h
+  at file D:\Hybrid_Car\KCG\BoostConverter.h, line 0, character 0
+ ~BoostConverter.h
+  at file D:\Hybrid_Car\KCG\Command.h, line 0, character 0
+ ~Command.h
+  at file D:\Hybrid_Car\KCG\Rectifier.h, line 0, character 0
+ ~Rectifier.h
+  at file D:\Hybrid_Car\KCG\Max3_math_float32.h, line 0, character 0
+ ~Max3_math_float32.h
+  at file D:\Hybrid_Car\KCG\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file D:\Hybrid_Car\KCG\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file D:\Hybrid_Car\KCG\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file D:\Hybrid_Car\KCG\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file D:\Hybrid_Car\KCG\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file D:\Hybrid_Car\KCG\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file D:\Hybrid_Car\KCG\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file D:\Hybrid_Car\KCG\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file D:\Hybrid_Car\KCG\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file D:\Hybrid_Car\KCG\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+$**************  SCADETOC Version 2019 R3 (build 20190802) **************
+** Generation date: 2020-06-09T13:17:57
+** sc2c.log
+*************************************************************$

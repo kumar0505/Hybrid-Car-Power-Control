@@ -1,0 +1,46 @@
+$**************  SCADETOC Version 2019 R3 (build 20190802) **************
+** Generation date: 2020-06-09T13:14:50
+** Command: scade -code "D:\Hybrid_Car\Hybrid_Car.etp" -root DynamicControl -conf KCG
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file D:\Hybrid_Car\KCG\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file D:\Hybrid_Car\KCG\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file D:\Hybrid_Car\KCG\DynamicControl.c, line 0, character 0
+ ~DynamicControl.c
+  at file D:\Hybrid_Car\KCG\Shaper.c, line 0, character 0
+ ~Shaper.c
+  at file D:\Hybrid_Car\KCG\Limiter.c, line 0, character 0
+ ~Limiter.c
+  at file D:\Hybrid_Car\KCG\DynamicControl.h, line 0, character 0
+ ~DynamicControl.h
+  at file D:\Hybrid_Car\KCG\Shaper.h, line 0, character 0
+ ~Shaper.h
+  at file D:\Hybrid_Car\KCG\Limiter.h, line 0, character 0
+ ~Limiter.h
+  at file D:\Hybrid_Car\KCG\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file D:\Hybrid_Car\KCG\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file D:\Hybrid_Car\KCG\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file D:\Hybrid_Car\KCG\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file D:\Hybrid_Car\KCG\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file D:\Hybrid_Car\KCG\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file D:\Hybrid_Car\KCG\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file D:\Hybrid_Car\KCG\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file D:\Hybrid_Car\KCG\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file D:\Hybrid_Car\KCG\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+$**************  SCADETOC Version 2019 R3 (build 20190802) **************
+** Generation date: 2020-06-09T13:14:51
+** sc2c.log
+*************************************************************$

@@ -1,0 +1,35 @@
+*****************************
+*** Generated KCG H/Ads files ***
+*****************************
+Inverter.h
+ThreePhaseConverter.h
+ModCount.h
+kcg_types.h
+kcg_consts.h
+kcg_sensors.h
+
+*****************************
+*** Generated KCG C/Adb files ***
+*****************************
+Inverter.c
+ThreePhaseConverter.c
+ModCount.c
+kcg_types.c
+kcg_consts.c
+
+*****************************
+*** Generated SC2C Files ***
+*****************************
+user_macros.h
+kcg_imported_types.h
+
+*****************************
+*** Include Directories ***
+*****************************
+.
+$(SCADE)
+$(SCADE)\include
+$(SCADE)\include\C
+$(SCADE)\include\Ada
+$(SCADE)\lib\Ada
+

@@ -1,0 +1,3 @@
+-target_dir "D:/Hybrid_Car/KCG" -target C -name_length 200 -significance_length 31 -user_config "./user_macros.h" 
+-root ThreePhaseConverter
+"D:/Hybrid_Car/KCG/scade_model_without_unused.scade"

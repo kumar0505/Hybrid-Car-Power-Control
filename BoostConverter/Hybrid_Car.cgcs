@@ -1,0 +1,20 @@
+[scade_version: 2019 R3]
+[scade_project: D:/Hybrid_Car/Hybrid_Car.etp]
+[Code Generator]
+ffd43b061300869b9a40fa77456a55d2 D:/Hybrid_Car/KCG/BoostConverter.c
+243071d87b48d857824e0701bad66a8c D:/Hybrid_Car/KCG/BoostConverter.h
+67245c91da21bec570b76bf8831364c8 D:/Hybrid_Car/KCG/Command.c
+28f567884c9ec99e5a1eeee2f48cf961 D:/Hybrid_Car/KCG/Command.h
+1d81cf7713d80d0cc8916bdb2b769446 D:/Hybrid_Car/KCG/scade_model_without_unused.scade
+23aa9a2d5908a4074dbe4d7203cce34a D:/Hybrid_Car/KCG/cmd_cg.log
+7bd449814975731b125be8ad34a0ae24 D:/Hybrid_Car/KCG/config.txt
+aa71772c1540a204c4ba12ffbf7d7cdd D:/Hybrid_Car/KCG/kcg_consts.c
+b4fb08cbc4a6c359682b571618a2d241 D:/Hybrid_Car/KCG/kcg_consts.h
+8577095900eb9c5febbce81da578e681 D:/Hybrid_Car/KCG/kcg_files.txt
+c570e85441febaa6f6d5e23e14e58b55 D:/Hybrid_Car/KCG/kcg_imported_types.h
+a9afea82f0c4c076aa62d9599ba50625 D:/Hybrid_Car/KCG/kcg_metrics.txt
+5e620612620a76921de7ccfff131fef7 D:/Hybrid_Car/KCG/kcg_sensors.h
+fd7fbcdaab8285068a5f62037899f4e0 D:/Hybrid_Car/KCG/kcg_types.c
+9539e8721e2e2590fd4a5c8fc10af479 D:/Hybrid_Car/KCG/kcg_types.h
+18e6dd9c35e275c2088b1d88d5b4bb18 D:/Hybrid_Car/KCG/mapping.xml
+e23907115fc212ba1319b5fd9b23f340 D:/Hybrid_Car/KCG/user_macros.h

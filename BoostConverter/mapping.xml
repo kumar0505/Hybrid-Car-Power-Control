@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/Hybrid_Car/KCG/config.txt
+** Generation date: 2020-06-09T13:12:46
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="D:/Hybrid_Car/KCG/scade_model_without_unused.scade"/>
+    <option name="probes" value="#off#"/>
+    <option name="debug" value="#off#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="D:/Hybrid_Car/KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="BoostConverter"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <operator id="14" name="BoostConverter" imported="false" root="true" expanded="false">
+      <input id="15" name="InterruptorConductionTime" clock="false" type="11"/>
+      <input id="16" name="InterruptorLockingTime" clock="false" type="11"/>
+      <input id="17" name="Vin" clock="false" type="11"/>
+      <input id="18" name="BatteryUsed" clock="false" type="1"/>
+      <output id="19" name="Vout" clock="false" type="11"/>
+      <instance id="20" name="1" op="21" expanded="false"/>
+    </operator>
+    <operator id="21" name="Command" imported="false" root="false" expanded="false">
+      <input id="22" name="InterruptorConductionTime" clock="false" type="11"/>
+      <input id="23" name="InterruptorLockingTime" clock="false" type="11"/>
+      <output id="24" name="Alpha" clock="false" type="11"/>
+    </operator>
+  </model>
+  <generated>
+    <c>
+      <file id="25" name="BoostConverter.h">
+        <function id="26" name="BoostConverter_init">
+          <parameter id="27" name="outC" type="33" pointer="true"/>
+        </function>
+        <function id="28" name="BoostConverter_reset">
+          <parameter id="29" name="outC" type="33" pointer="true"/>
+        </function>
+        <function id="30" name="BoostConverter">
+          <parameter id="31" name="inC" type="35" pointer="true"/>
+          <parameter id="32" name="outC" type="33" pointer="true"/>
+        </function>
+        <struct id="33" name="outC_BoostConverter">
+          <field id="34" name="Vout" type="78" pointer="false"/>
+        </struct>
+        <struct id="35" name="inC_BoostConverter">
+          <field id="36" name="InterruptorConductionTime" type="78" pointer="false"/>
+          <field id="37" name="InterruptorLockingTime" type="78" pointer="false"/>
+          <field id="38" name="Vin" type="78" pointer="false"/>
+          <field id="39" name="BatteryUsed" type="79" pointer="false"/>
+        </struct>
+      </file>
+      <file id="40" name="Command.h">
+        <function id="41" name="Command" returnType="78">
+          <parameter id="42" name="InterruptorConductionTime" type="78" pointer="false"/>
+          <parameter id="43" name="InterruptorLockingTime" type="78" pointer="false"/>
+        </function>
+      </file>
+      <file id="44" name="kcg_types.h">
+        <macro id="45" name="kcg_assign_array"/>
+        <macro id="46" name="kcg_assign_struct"/>
+        <macro id="47" name="kcg_lnot_uint8"/>
+        <macro id="48" name="kcg_lnot_uint16"/>
+        <macro id="49" name="kcg_lnot_uint32"/>
+        <macro id="50" name="kcg_lnot_uint64"/>
+        <macro id="51" name="kcg_lsl_uint8"/>
+        <macro id="52" name="kcg_lsl_uint16"/>
+        <macro id="53" name="kcg_lsl_uint32"/>
+        <macro id="54" name="kcg_lsl_uint64"/>
+        <macro id="55" name="kcg_true"/>
+        <macro id="56" name="kcg_false"/>
+        <macro id="57" name="kcg_lit_int8"/>
+        <macro id="58" name="kcg_lit_int16"/>
+        <macro id="59" name="kcg_lit_int32"/>
+        <macro id="60" name="kcg_lit_int64"/>
+        <macro id="61" name="kcg_lit_uint8"/>
+        <macro id="62" name="kcg_lit_uint16"/>
+        <macro id="63" name="kcg_lit_uint32"/>
+        <macro id="64" name="kcg_lit_uint64"/>
+        <macro id="65" name="kcg_lit_size"/>
+        <macro id="66" name="kcg_lit_float64"/>
+        <macro id="67" name="kcg_lit_float32"/>
+        <predefType id="68" name="kcg_int8"/>
+        <predefType id="69" name="kcg_int16"/>
+        <predefType id="70" name="kcg_int32"/>
+        <predefType id="71" name="kcg_int64"/>
+        <predefType id="72" name="kcg_uint8"/>
+        <predefType id="73" name="kcg_uint16"/>
+        <predefType id="74" name="kcg_uint32"/>
+        <predefType id="75" name="kcg_uint64"/>
+        <predefType id="76" name="kcg_size"/>
+        <predefType id="77" name="kcg_float64"/>
+        <predefType id="78" name="kcg_float32"/>
+        <predefType id="79" name="kcg_bool"/>
+        <predefType id="80" name="kcg_char"/>
+        <macro id="81" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="82" name="kcg_consts.h"/>
+      <file id="83" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="77" dstId="66" role="wrapped-lit"/>
+    <map srcId="78" dstId="67" role="wrapped-lit"/>
+    <map srcId="76" dstId="65" role="wrapped-lit"/>
+    <map srcId="75" dstId="64" role="wrapped-lit"/>
+    <map srcId="75" dstId="50" role="wrapped-lnot"/>
+    <map srcId="75" dstId="54" role="wrapped-lsl"/>
+    <map srcId="74" dstId="63" role="wrapped-lit"/>
+    <map srcId="74" dstId="49" role="wrapped-lnot"/>
+    <map srcId="74" dstId="53" role="wrapped-lsl"/>
+    <map srcId="73" dstId="62" role="wrapped-lit"/>
+    <map srcId="73" dstId="48" role="wrapped-lnot"/>
+    <map srcId="73" dstId="52" role="wrapped-lsl"/>
+    <map srcId="72" dstId="61" role="wrapped-lit"/>
+    <map srcId="72" dstId="47" role="wrapped-lnot"/>
+    <map srcId="72" dstId="51" role="wrapped-lsl"/>
+    <map srcId="71" dstId="60" role="wrapped-lit"/>
+    <map srcId="70" dstId="59" role="wrapped-lit"/>
+    <map srcId="69" dstId="58" role="wrapped-lit"/>
+    <map srcId="68" dstId="57" role="wrapped-lit"/>
+  </generated>
+  <map modelId="14" generatedId="27" role="context-parameter"/>
+  <map modelId="14" generatedId="26" role="init-method"/>
+  <map modelId="14" generatedId="29" role="context-parameter"/>
+  <map modelId="14" generatedId="28" role="reset-method"/>
+  <map modelId="14" generatedId="31" role="input-struct-parameter"/>
+  <map modelId="18" generatedId="39"/>
+  <map modelId="17" generatedId="38"/>
+  <map modelId="16" generatedId="37"/>
+  <map modelId="15" generatedId="36"/>
+  <map modelId="14" generatedId="35" role="input-struct-type"/>
+  <map modelId="14" generatedId="32" role="context-parameter"/>
+  <map modelId="19" generatedId="34"/>
+  <map modelId="14" generatedId="33" role="context-type"/>
+  <map modelId="14" generatedId="25" role="interface-file"/>
+  <map modelId="14" generatedId="30" role="cycle-method"/>
+  <map modelId="23" generatedId="43"/>
+  <map modelId="22" generatedId="42"/>
+  <map modelId="21" generatedId="40" role="interface-file"/>
+  <map modelId="21" generatedId="41" role="cycle-method"/>
+  <map modelId="2" generatedId="80"/>
+  <map modelId="1" generatedId="79"/>
+  <map modelId="12" generatedId="77"/>
+  <map modelId="11" generatedId="78"/>
+  <map modelId="13" generatedId="76"/>
+  <map modelId="10" generatedId="75"/>
+  <map modelId="9" generatedId="74"/>
+  <map modelId="8" generatedId="73"/>
+  <map modelId="7" generatedId="72"/>
+  <map modelId="6" generatedId="71"/>
+  <map modelId="5" generatedId="70"/>
+  <map modelId="4" generatedId="69"/>
+  <map modelId="3" generatedId="68"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2020-06-09T13:12:46
+*************************************************************$-->

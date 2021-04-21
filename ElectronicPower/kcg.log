@@ -1,0 +1,15 @@
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/Hybrid_Car/KCG/config.txt
+** Generation date: 2020-06-09T13:16:45
+*************************************************************$
+*** Code Generation Warning (WAR_604): Renaming interface identifier
+  at file D:/Hybrid_Car/KCG/scade_model_without_unused.scade, line 16, character 0
+  at path int/
+ Interface element int has been renamed because it is not a valid C identifier
+1 warning was found
+No error was found
+No failure occurred
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** kcg.log
+** Generation date: 2020-06-09T13:16:45
+*************************************************************$

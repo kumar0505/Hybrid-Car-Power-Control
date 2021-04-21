@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="D:/Hybrid_Car/KCG/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#off#"/>
+    <Option name="debug" value="#off#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="D:/Hybrid_Car/KCG"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="Rectifier"/>
+    <Option name="auth" value="#off#"/>
+    <RootNode headerFile="Rectifier.h" scadeName="Rectifier" targetCycleFct="Rectifier" targetInitFct="Rectifier_reset" targetInitializationFct="Rectifier_init">
+      <Input inCtx="true" scadeName="V1" scadeType="float32" targetName="V1" targetType="kcg_float32"/>
+      <Input inCtx="true" scadeName="V2" scadeType="float32" targetName="V2" targetType="kcg_float32"/>
+      <Input inCtx="true" scadeName="V3" scadeType="float32" targetName="V3" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Vs" scadeType="float32" targetName="Vs" targetType="kcg_float32"/>
+      <FbyOp instName="1">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_1" targetType="struct_537"/>
+      </FbyOp>
+      <FbyOp instName="2">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_2" targetType="struct_527"/>
+      </FbyOp>
+      <FbyOp instName="3">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_3" targetType="struct_517"/>
+      </FbyOp>
+      <FbyOp instName="4">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_4" targetType="struct_511"/>
+      </FbyOp>
+      <FbyOp instName="5">
+        <Memory inCtx="true" targetName="_L3" targetType="kcg_float32"/>
+      </FbyOp>
+      <NodeInstance instName="1" refName="Max3_math_float32" scadeName="math::Max3"/>
+      <NodeInstance instName="2" refName="Max3_math_float32" scadeName="math::Max3"/>
+      <NodeInlining instName="1" scadeName="math::Max"/>
+      <Fby inCtx="true" targetName="fby_3" targetType="struct_517"/>
+      <Fby inCtx="true" targetName="fby_4" targetType="struct_511"/>
+      <Fby inCtx="true" targetName="fby_1" targetType="struct_537"/>
+      <Fby inCtx="true" targetName="fby_2" targetType="struct_527"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L3" targetType="kcg_float32"/>
+      <OutCtxType targetName="outC_Rectifier"/>
+      <InCtxType targetName="inC_Rectifier"/>
+    </RootNode>
+    <Package scadeName="math">
+      <ExpNode scadeName="Max"/>
+      <NoExpNode headerFile="Max3_math_float32.h" scadeName="Max3" targetCycleFct="Max3_math_float32">
+        <Input scadeName="I1" scadeType="float32" targetName="I1_float32" targetType="kcg_float32"/>
+        <Input scadeName="I2" scadeType="float32" targetName="I2_float32" targetType="kcg_float32"/>
+        <Input scadeName="I3" scadeType="float32" targetName="I3_float32" targetType="kcg_float32"/>
+        <Output scadeName="Ma3_Output" scadeType="float32" targetName="Ma3_Output" targetType="kcg_float32"/>
+      </NoExpNode>
+    </Package>
+    <StructType targetCompFct="kcg_comp_struct_511" targetCopyFct="kcg_copy_struct_511" targetName="struct_511">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float32_2" targetName="items" targetType="array_float32_2"/>
+    </StructType>
+    <StructType targetCompFct="kcg_comp_struct_517" targetCopyFct="kcg_copy_struct_517" targetName="struct_517">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float32_3" targetName="items" targetType="array_float32_3"/>
+    </StructType>
+    <StructType targetCompFct="kcg_comp_struct_527" targetCopyFct="kcg_copy_struct_527" targetName="struct_527">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float32_4" targetName="items" targetType="array_float32_4"/>
+    </StructType>
+    <StructType targetCompFct="kcg_comp_struct_537" targetCopyFct="kcg_copy_struct_537" targetName="struct_537">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float32_5" targetName="items" targetType="array_float32_5"/>
+    </StructType>
+    <ArrayType cellType="kcg_float32" size="4" targetCompFct="kcg_comp_array_float32_4" targetCopyFct="kcg_copy_array_float32_4" targetName="array_float32_4"/>
+    <ArrayType cellType="kcg_float32" size="3" targetCompFct="kcg_comp_array_float32_3" targetCopyFct="kcg_copy_array_float32_3" targetName="array_float32_3"/>
+    <ArrayType cellType="kcg_float32" size="5" targetCompFct="kcg_comp_array_float32_5" targetCopyFct="kcg_copy_array_float32_5" targetName="array_float32_5"/>
+    <ArrayType cellType="kcg_float32" size="2" targetCompFct="kcg_comp_array_float32_2" targetCopyFct="kcg_copy_array_float32_2" targetName="array_float32_2"/>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

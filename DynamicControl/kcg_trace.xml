@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="D:/Hybrid_Car/KCG/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#off#"/>
+    <Option name="debug" value="#off#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="D:/Hybrid_Car/KCG"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="DynamicControl"/>
+    <Option name="auth" value="#off#"/>
+    <Constant macroDef="true" scadeName="Gain" scadeType="float32" targetName="Gain" targetType="kcg_float32"/>
+    <RootNode headerFile="DynamicControl.h" scadeName="DynamicControl" targetCycleFct="DynamicControl" targetInitFct="DynamicControl_reset" targetInitializationFct="DynamicControl_init">
+      <Input inCtx="true" scadeName="Breaking_Input" scadeType="float32" targetName="Breaking_Input" targetType="kcg_float32"/>
+      <Input inCtx="true" scadeName="Accelarator_Input" scadeType="float32" targetName="Accelarator_Input" targetType="kcg_float32"/>
+      <Input inCtx="true" scadeName="PriviousSpeed" scadeType="float32" targetName="PriviousSpeed" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Accelaration" scadeType="float32" targetName="Accelaration" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Deaccelaration" scadeType="float32" targetName="Deaccelaration" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="CurrentSpeed" scadeType="float32" targetName="CurrentSpeed" targetType="kcg_float32"/>
+      <NodeInstance instName="1" refName="Limiter" scadeName="Limiter"/>
+      <NodeInstance instName="2" refName="Limiter" scadeName="Limiter"/>
+      <NodeInstance instName="3" refName="Shaper" scadeName="Shaper">
+        <OutCtxVar targetName="Context_Shaper_3"/>
+      </NodeInstance>
+      <NodeInstance instName="4" refName="Shaper" scadeName="Shaper">
+        <OutCtxVar targetName="Context_Shaper_4"/>
+      </NodeInstance>
+      <InitOp instName="1"/>
+      <InitOp instName="2"/>
+      <NodeInstance instName="3" refName="Limiter" scadeName="Limiter"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_DynamicControl"/>
+      <InCtxType targetName="inC_DynamicControl"/>
+    </RootNode>
+    <NoExpNode headerFile="Limiter.h" scadeName="Limiter" targetCycleFct="Limiter">
+      <Input scadeName="LUS_Input" scadeType="float32" targetName="LUS_Input" targetType="kcg_float32"/>
+      <Input scadeName="HighLimit" scadeType="float32" targetName="HighLimit" targetType="kcg_float32"/>
+      <Input scadeName="LowLimit" scadeType="float32" targetName="LowLimit" targetType="kcg_float32"/>
+      <Output scadeName="LUS_Output" scadeType="float32" targetName="LUS_Output" targetType="kcg_float32"/>
+      <Assume scadeName="A1" targetName=""/>
+    </NoExpNode>
+    <NoExpNode headerFile="Shaper.h" scadeName="Shaper" targetCycleFct="Shaper" targetInitFct="Shaper_reset" targetInitializationFct="Shaper_init">
+      <Input scadeName="RL_Input" scadeType="float32" targetName="RL_Input" targetType="kcg_float32"/>
+      <Input scadeName="deltaT" scadeType="float32" targetName="deltaT" targetType="kcg_float32"/>
+      <Input scadeName="Falling" scadeType="float32" targetName="Falling" targetType="kcg_float32"/>
+      <Input scadeName="Rising" scadeType="float32" targetName="Rising" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="RL_Output" scadeType="float32" targetName="RL_Output" targetType="kcg_float32"/>
+      <FbyOp instName="1">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="RL_Output" targetType="kcg_float32"/>
+      </FbyOp>
+      <Assume scadeName="A1" targetName=""/>
+      <Memory inCtx="true" targetName="RL_Output" targetType="kcg_float32"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_Shaper"/>
+    </NoExpNode>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

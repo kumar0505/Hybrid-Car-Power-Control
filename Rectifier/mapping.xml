@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/Hybrid_Car/KCG/config.txt
+** Generation date: 2020-06-09T13:22:15
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="D:/Hybrid_Car/KCG/scade_model_without_unused.scade"/>
+    <option name="probes" value="#off#"/>
+    <option name="debug" value="#off#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="D:/Hybrid_Car/KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="Rectifier"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <operator id="14" name="Rectifier" imported="false" root="true" expanded="false">
+      <input id="15" name="V1" clock="false" type="11"/>
+      <input id="16" name="V2" clock="false" type="11"/>
+      <input id="17" name="V3" clock="false" type="11"/>
+      <output id="18" name="Vs" clock="false" type="11"/>
+      <fby id="19" name="1"/>
+      <fby id="20" name="2"/>
+      <fby id="21" name="3"/>
+      <fby id="22" name="4"/>
+      <fby id="23" name="5"/>
+      <instance id="24" name="1" op="33" expanded="false"/>
+      <instance id="25" name="2" op="33" expanded="false"/>
+      <instance id="26" name="1" op="39" expanded="true">
+        <input id="27" name="I1" clock="false" type="11"/>
+        <input id="28" name="I2" clock="false" type="11"/>
+        <output id="29" name="Ma_Output" clock="false" type="11"/>
+      </instance>
+    </operator>
+    <package id="30" name="math">
+      <operator id="31" name="Max3" imported="false" root="false" expanded="false"/>
+      <operator id="32" name="Max" imported="false" root="false" expanded="true"/>
+      <mono id="33" src="31">
+        <typeVar id="34" name="T" type="11"/>
+        <input id="35" name="I1" clock="false" type="11"/>
+        <input id="36" name="I2" clock="false" type="11"/>
+        <input id="37" name="I3" clock="false" type="11"/>
+        <output id="38" name="Ma3_Output" clock="false" type="11"/>
+      </mono>
+      <mono id="39" src="32">
+        <typeVar id="40" name="T" type="11"/>
+      </mono>
+    </package>
+  </model>
+  <generated>
+    <c>
+      <file id="41" name="Rectifier.h">
+        <function id="42" name="Rectifier_init">
+          <parameter id="43" name="outC" type="49" pointer="true"/>
+        </function>
+        <function id="44" name="Rectifier_reset">
+          <parameter id="45" name="outC" type="49" pointer="true"/>
+        </function>
+        <function id="46" name="Rectifier">
+          <parameter id="47" name="inC" type="57" pointer="true"/>
+          <parameter id="48" name="outC" type="49" pointer="true"/>
+        </function>
+        <struct id="49" name="outC_Rectifier">
+          <field id="50" name="Vs" type="156" pointer="false"/>
+          <field id="51" name="fby_3" type="110" pointer="false"/>
+          <field id="52" name="fby_4" type="107" pointer="false"/>
+          <field id="53" name="fby_1" type="116" pointer="false"/>
+          <field id="54" name="fby_2" type="113" pointer="false"/>
+          <field id="55" name="init" type="157" pointer="false"/>
+          <field id="56" name="_L3" type="156" pointer="false"/>
+        </struct>
+        <struct id="57" name="inC_Rectifier">
+          <field id="58" name="V1" type="156" pointer="false"/>
+          <field id="59" name="V2" type="156" pointer="false"/>
+          <field id="60" name="V3" type="156" pointer="false"/>
+        </struct>
+      </file>
+      <file id="61" name="Max3_math_float32.h">
+        <function id="62" name="Max3_math_float32" returnType="156">
+          <parameter id="63" name="I1_float32" type="156" pointer="false"/>
+          <parameter id="64" name="I2_float32" type="156" pointer="false"/>
+          <parameter id="65" name="I3_float32" type="156" pointer="false"/>
+        </function>
+      </file>
+      <file id="66" name="kcg_types.h">
+        <ifdef id="67" name="kcg_use_array_float32_2">
+          <function id="68" name="kcg_comp_array_float32_2" returnType="157">
+            <parameter id="97" name="kcg_c1" type="122" pointer="true"/>
+            <parameter id="98" name="kcg_c2" type="122" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="71" name="kcg_use_array_float32_5">
+          <function id="72" name="kcg_comp_array_float32_5" returnType="157">
+            <parameter id="97" name="kcg_c1" type="121" pointer="true"/>
+            <parameter id="98" name="kcg_c2" type="121" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="75" name="kcg_use_array_float32_3">
+          <function id="76" name="kcg_comp_array_float32_3" returnType="157">
+            <parameter id="97" name="kcg_c1" type="120" pointer="true"/>
+            <parameter id="98" name="kcg_c2" type="120" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="79" name="kcg_use_array_float32_4">
+          <function id="80" name="kcg_comp_array_float32_4" returnType="157">
+            <parameter id="97" name="kcg_c1" type="119" pointer="true"/>
+            <parameter id="98" name="kcg_c2" type="119" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="83" name="kcg_use_struct_537">
+          <function id="84" name="kcg_comp_struct_537" returnType="157">
+            <parameter id="97" name="kcg_c1" type="116" pointer="true"/>
+            <parameter id="98" name="kcg_c2" type="116" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="87" name="kcg_use_struct_527">
+          <function id="88" name="kcg_comp_struct_527" returnType="157">
+            <parameter id="97" name="kcg_c1" type="113" pointer="true"/>
+            <parameter id="98" name="kcg_c2" type="113" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="91" name="kcg_use_struct_517">
+          <function id="92" name="kcg_comp_struct_517" returnType="157">
+            <parameter id="97" name="kcg_c1" type="110" pointer="true"/>
+            <parameter id="98" name="kcg_c2" type="110" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="95" name="kcg_use_struct_511">
+          <function id="96" name="kcg_comp_struct_511" returnType="157">
+            <parameter id="97" name="kcg_c1" type="107" pointer="true"/>
+            <parameter id="98" name="kcg_c2" type="107" pointer="true"/>
+          </function>
+        </ifdef>
+        <macro id="99" name="kcg_copy_array_float32_2"/>
+        <macro id="100" name="kcg_copy_array_float32_5"/>
+        <macro id="101" name="kcg_copy_array_float32_3"/>
+        <macro id="102" name="kcg_copy_array_float32_4"/>
+        <macro id="103" name="kcg_copy_struct_537"/>
+        <macro id="104" name="kcg_copy_struct_527"/>
+        <macro id="105" name="kcg_copy_struct_517"/>
+        <macro id="106" name="kcg_copy_struct_511"/>
+        <struct id="107" name="struct_511" tagName="kcg_tag_struct_511">
+          <field id="108" name="idx" type="154" pointer="false"/>
+          <field id="109" name="items" type="122" pointer="false"/>
+        </struct>
+        <struct id="110" name="struct_517" tagName="kcg_tag_struct_517">
+          <field id="111" name="idx" type="154" pointer="false"/>
+          <field id="112" name="items" type="120" pointer="false"/>
+        </struct>
+        <struct id="113" name="struct_527" tagName="kcg_tag_struct_527">
+          <field id="114" name="idx" type="154" pointer="false"/>
+          <field id="115" name="items" type="119" pointer="false"/>
+        </struct>
+        <struct id="116" name="struct_537" tagName="kcg_tag_struct_537">
+          <field id="117" name="idx" type="154" pointer="false"/>
+          <field id="118" name="items" type="121" pointer="false"/>
+        </struct>
+        <array id="119" name="array_float32_4" baseType="156" size="4"/>
+        <array id="120" name="array_float32_3" baseType="156" size="3"/>
+        <array id="121" name="array_float32_5" baseType="156" size="5"/>
+        <array id="122" name="array_float32_2" baseType="156" size="2"/>
+        <macro id="123" name="kcg_assign_array"/>
+        <macro id="124" name="kcg_assign_struct"/>
+        <macro id="125" name="kcg_lnot_uint8"/>
+        <macro id="126" name="kcg_lnot_uint16"/>
+        <macro id="127" name="kcg_lnot_uint32"/>
+        <macro id="128" name="kcg_lnot_uint64"/>
+        <macro id="129" name="kcg_lsl_uint8"/>
+        <macro id="130" name="kcg_lsl_uint16"/>
+        <macro id="131" name="kcg_lsl_uint32"/>
+        <macro id="132" name="kcg_lsl_uint64"/>
+        <macro id="133" name="kcg_true"/>
+        <macro id="134" name="kcg_false"/>
+        <macro id="135" name="kcg_lit_int8"/>
+        <macro id="136" name="kcg_lit_int16"/>
+        <macro id="137" name="kcg_lit_int32"/>
+        <macro id="138" name="kcg_lit_int64"/>
+        <macro id="139" name="kcg_lit_uint8"/>
+        <macro id="140" name="kcg_lit_uint16"/>
+        <macro id="141" name="kcg_lit_uint32"/>
+        <macro id="142" name="kcg_lit_uint64"/>
+        <macro id="143" name="kcg_lit_size"/>
+        <macro id="144" name="kcg_lit_float64"/>
+        <macro id="145" name="kcg_lit_float32"/>
+        <predefType id="146" name="kcg_int8"/>
+        <predefType id="147" name="kcg_int16"/>
+        <predefType id="148" name="kcg_int32"/>
+        <predefType id="149" name="kcg_int64"/>
+        <predefType id="150" name="kcg_uint8"/>
+        <predefType id="151" name="kcg_uint16"/>
+        <predefType id="152" name="kcg_uint32"/>
+        <predefType id="153" name="kcg_uint64"/>
+        <predefType id="154" name="kcg_size"/>
+        <predefType id="155" name="kcg_float64"/>
+        <predefType id="156" name="kcg_float32"/>
+        <predefType id="157" name="kcg_bool"/>
+        <predefType id="158" name="kcg_char"/>
+        <macro id="159" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="160" name="kcg_consts.h"/>
+      <file id="161" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="155" dstId="144" role="wrapped-lit"/>
+    <map srcId="156" dstId="145" role="wrapped-lit"/>
+    <map srcId="154" dstId="143" role="wrapped-lit"/>
+    <map srcId="153" dstId="142" role="wrapped-lit"/>
+    <map srcId="153" dstId="128" role="wrapped-lnot"/>
+    <map srcId="153" dstId="132" role="wrapped-lsl"/>
+    <map srcId="152" dstId="141" role="wrapped-lit"/>
+    <map srcId="152" dstId="127" role="wrapped-lnot"/>
+    <map srcId="152" dstId="131" role="wrapped-lsl"/>
+    <map srcId="151" dstId="140" role="wrapped-lit"/>
+    <map srcId="151" dstId="126" role="wrapped-lnot"/>
+    <map srcId="151" dstId="130" role="wrapped-lsl"/>
+    <map srcId="150" dstId="139" role="wrapped-lit"/>
+    <map srcId="150" dstId="125" role="wrapped-lnot"/>
+    <map srcId="150" dstId="129" role="wrapped-lsl"/>
+    <map srcId="149" dstId="138" role="wrapped-lit"/>
+    <map srcId="148" dstId="137" role="wrapped-lit"/>
+    <map srcId="147" dstId="136" role="wrapped-lit"/>
+    <map srcId="146" dstId="135" role="wrapped-lit"/>
+    <map srcId="122" dstId="67" role="type-use"/>
+    <map srcId="122" dstId="68" role="type-comparison"/>
+    <map srcId="122" dstId="99" role="type-copy"/>
+    <map srcId="116" dstId="83" role="type-use"/>
+    <map srcId="116" dstId="84" role="type-comparison"/>
+    <map srcId="116" dstId="103" role="type-copy"/>
+    <map srcId="121" dstId="71" role="type-use"/>
+    <map srcId="121" dstId="72" role="type-comparison"/>
+    <map srcId="121" dstId="100" role="type-copy"/>
+    <map srcId="113" dstId="87" role="type-use"/>
+    <map srcId="113" dstId="88" role="type-comparison"/>
+    <map srcId="113" dstId="104" role="type-copy"/>
+    <map srcId="120" dstId="75" role="type-use"/>
+    <map srcId="120" dstId="76" role="type-comparison"/>
+    <map srcId="120" dstId="101" role="type-copy"/>
+    <map srcId="110" dstId="91" role="type-use"/>
+    <map srcId="110" dstId="92" role="type-comparison"/>
+    <map srcId="110" dstId="105" role="type-copy"/>
+    <map srcId="107" dstId="95" role="type-use"/>
+    <map srcId="107" dstId="96" role="type-comparison"/>
+    <map srcId="107" dstId="106" role="type-copy"/>
+    <map srcId="119" dstId="79" role="type-use"/>
+    <map srcId="119" dstId="80" role="type-comparison"/>
+    <map srcId="119" dstId="102" role="type-copy"/>
+  </generated>
+  <map modelId="14" generatedId="43" role="context-parameter"/>
+  <map modelId="14" generatedId="42" role="init-method"/>
+  <map modelId="14" generatedId="45" role="context-parameter"/>
+  <map modelId="14" generatedId="44" role="reset-method"/>
+  <map modelId="14" generatedId="47" role="input-struct-parameter"/>
+  <map modelId="17" generatedId="60"/>
+  <map modelId="16" generatedId="59"/>
+  <map modelId="15" generatedId="58"/>
+  <map modelId="14" generatedId="57" role="input-struct-type"/>
+  <map modelId="14" generatedId="48" role="context-parameter"/>
+  <map modelId="23" generatedId="56" role="memory"/>
+  <map modelId="19" generatedId="55" role="init"/>
+  <map modelId="20" generatedId="55" role="init"/>
+  <map modelId="21" generatedId="55" role="init"/>
+  <map modelId="22" generatedId="55" role="init"/>
+  <map modelId="20" generatedId="54" role="memory"/>
+  <map modelId="19" generatedId="53" role="memory"/>
+  <map modelId="22" generatedId="52" role="memory"/>
+  <map modelId="21" generatedId="51" role="memory"/>
+  <map modelId="18" generatedId="50"/>
+  <map modelId="14" generatedId="49" role="context-type"/>
+  <map modelId="14" generatedId="41" role="interface-file"/>
+  <map modelId="14" generatedId="46" role="cycle-method"/>
+  <map modelId="37" generatedId="65"/>
+  <map modelId="36" generatedId="64"/>
+  <map modelId="35" generatedId="63"/>
+  <map modelId="33" generatedId="61" role="interface-file"/>
+  <map modelId="33" generatedId="62" role="cycle-method"/>
+  <map modelId="2" generatedId="158"/>
+  <map modelId="1" generatedId="157"/>
+  <map modelId="12" generatedId="155"/>
+  <map modelId="11" generatedId="156"/>
+  <map modelId="13" generatedId="154"/>
+  <map modelId="10" generatedId="153"/>
+  <map modelId="9" generatedId="152"/>
+  <map modelId="8" generatedId="151"/>
+  <map modelId="7" generatedId="150"/>
+  <map modelId="6" generatedId="149"/>
+  <map modelId="5" generatedId="148"/>
+  <map modelId="4" generatedId="147"/>
+  <map modelId="3" generatedId="146"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2020-06-09T13:22:15
+*************************************************************$-->

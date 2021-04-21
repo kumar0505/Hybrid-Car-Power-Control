@@ -1,0 +1,18 @@
+[scade_version: 2019 R3]
+[scade_project: D:/Hybrid_Car/Hybrid_Car.etp]
+[Code Generator]
+6f517b6f2e41a622faf9a82c56369562 D:/Hybrid_Car/KCG/BatteryLevel.c
+6fd899bdcea7a4db5a203af54d629310 D:/Hybrid_Car/KCG/BatteryLevel.h
+e01608095cff1a6cb3266b2d0e8bb70f D:/Hybrid_Car/KCG/scade_model_without_unused.scade
+23aa9a2d5908a4074dbe4d7203cce34a D:/Hybrid_Car/KCG/cmd_cg.log
+8ab44b347c0040150f523486085831af D:/Hybrid_Car/KCG/config.txt
+5ddf145f2f3533c65985261621ddbf89 D:/Hybrid_Car/KCG/kcg_consts.c
+353d8b3725432b51e460258eca171d96 D:/Hybrid_Car/KCG/kcg_consts.h
+93239a35702639be08a1ade58bba8894 D:/Hybrid_Car/KCG/kcg_files.txt
+c570e85441febaa6f6d5e23e14e58b55 D:/Hybrid_Car/KCG/kcg_imported_types.h
+02fc25d37251d4760d65ee355e02d5fb D:/Hybrid_Car/KCG/kcg_metrics.txt
+9efe23936009795bdf345d86acde0adc D:/Hybrid_Car/KCG/kcg_sensors.h
+f7f9b0e4189dee3e41f7b8d654d9a2d2 D:/Hybrid_Car/KCG/kcg_types.c
+21e0c3823f9433317487a0f76c265cfb D:/Hybrid_Car/KCG/kcg_types.h
+4c7efe9147719de89f0726f63b3155b9 D:/Hybrid_Car/KCG/mapping.xml
+e23907115fc212ba1319b5fd9b23f340 D:/Hybrid_Car/KCG/user_macros.h

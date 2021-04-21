@@ -1,0 +1,147 @@
+
+function #pragma ed <Operator oid="!ed/16/4EBC/2708/5ec378183094">
+	<diagrams>
+		<NetDiagram name="Command_1" landscape="true" format="A4 (210 297)" oid="!ed/17/4EBC/2708/5ec3781844ad">
+			<presentationElements>
+				<EquationGE presentable="!ed/19/4EBC/2708/5ec37835590f">
+					<position>
+						<Point x="5292" y="2672"/>
+					</position>
+					<size>
+						<Size width="264" height="503"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/35/4EBC/2708/5ec378a21dab">
+					<position>
+						<Point x="4948" y="5106"/>
+					</position>
+					<size>
+						<Size width="265" height="502"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/4d/4EBC/2708/5ec378dd4414">
+					<position>
+						<Point x="7885" y="3360"/>
+					</position>
+					<size>
+						<Size width="1021" height="1789"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="2" srcEquation="!ed/35/4EBC/2708/5ec378a21dab" dstEquation="!ed/4d/4EBC/2708/5ec378dd4414">
+					<positions>
+						<Point x="5212" y="5371"/>
+						<Point x="6535" y="5371"/>
+						<Point x="6535" y="4551"/>
+						<Point x="7885" y="4551"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/19/4EBC/2708/5ec37835590f" dstEquation="!ed/4d/4EBC/2708/5ec378dd4414">
+					<positions>
+						<Point x="5556" y="2937"/>
+						<Point x="6720" y="2937"/>
+						<Point x="6720" y="3942"/>
+						<Point x="7885" y="3942"/>
+					</positions>
+				</Edge>
+				<EquationGE presentable="!ed/53/4EBC/2708/5ec378fd756a">
+					<position>
+						<Point x="11430" y="3175"/>
+					</position>
+					<size>
+						<Size width="1021" height="1657"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="2" srcEquation="!ed/4d/4EBC/2708/5ec378dd4414" dstEquation="!ed/53/4EBC/2708/5ec378fd756a">
+					<positions>
+						<Point x="8916" y="4260"/>
+						<Point x="10160" y="4260"/>
+						<Point x="10160" y="4260"/>
+						<Point x="11430" y="4260"/>
+					</positions>
+				</Edge>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/19/4EBC/2708/5ec37835590f" dstEquation="!ed/53/4EBC/2708/5ec378fd756a">
+					<positions>
+						<Point x="5556" y="2937"/>
+						<Point x="10504" y="2937"/>
+						<Point x="10504" y="3757"/>
+						<Point x="10636" y="3757"/>
+						<Point x="10636" y="3731"/>
+						<Point x="11430" y="3731"/>
+					</positions>
+				</Edge>
+				<EquationGE presentable="!ed/5a/4EBC/2708/5ec3791f715b">
+					<position>
+						<Point x="17171" y="3493"/>
+					</position>
+					<size>
+						<Size width="318" height="979"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/53/4EBC/2708/5ec378fd756a" dstEquation="!ed/5a/4EBC/2708/5ec3791f715b">
+					<positions>
+						<Point x="12435" y="3995"/>
+						<Point x="14817" y="3995"/>
+						<Point x="14817" y="3995"/>
+						<Point x="17224" y="3995"/>
+					</positions>
+				</Edge>
+			</presentationElements>
+		</NetDiagram>
+	</diagrams>
+</Operator>
+#end
+
+Command(
+      #pragma ed    <Variable oid="!ed/18/4EBC/2708/5ec378353862"/>
+#end
+
+InterruptorConductionTime : float32; 
+      #pragma ed    <Variable oid="!ed/34/4EBC/2708/5ec378a21170"/>
+#end
+
+InterruptorLockingTime : float32)
+returns (
+      #pragma ed    <Variable oid="!ed/59/4EBC/2708/5ec3791f6b63"/>
+#end
+
+Alpha : float32)
+var
+      #pragma ed    <Variable oid="!ed/1a/4EBC/2708/5ec3783513d9"/>
+#end
+
+_L1 : float32;
+      #pragma ed    <Variable oid="!ed/36/4EBC/2708/5ec378a24252"/>
+#end
+
+_L2 : float32;
+      #pragma ed    <Variable oid="!ed/4e/4EBC/2708/5ec378dd36b5"/>
+#end
+
+_L3 : float32;
+      #pragma ed    <Variable oid="!ed/54/4EBC/2708/5ec378fd3ffd"/>
+#end
+
+_L4 : float32;
+let
+   #pragma ed    <Equation oid="!ed/19/4EBC/2708/5ec37835590f"/>
+#end
+
+   _L1 = InterruptorConductionTime;
+   #pragma ed    <Equation oid="!ed/35/4EBC/2708/5ec378a21dab"/>
+#end
+
+   _L2 = InterruptorLockingTime;
+   #pragma ed    <Equation oid="!ed/4d/4EBC/2708/5ec378dd4414"/>
+#end
+
+   _L3 = _L1 #1  + _L2;
+   #pragma ed    <Equation oid="!ed/53/4EBC/2708/5ec378fd756a"/>
+#end
+
+   _L4 = _L1 #1  / _L3;
+   #pragma ed    <Equation oid="!ed/5a/4EBC/2708/5ec3791f715b"/>
+#end
+
+   Alpha = _L4;
+tel
+

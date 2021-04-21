@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/Hybrid_Car/KCG/config.txt
+** Generation date: 2020-06-09T13:17:57
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="D:/Hybrid_Car/KCG/scade_model_without_unused.scade"/>
+    <option name="probes" value="#off#"/>
+    <option name="debug" value="#off#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="D:/Hybrid_Car/KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="HybridCar_SM"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <constant id="14" name="F" imported="false" type="1"/>
+    <constant id="15" name="T" imported="false" type="1"/>
+    <constant id="16" name="Gain" imported="false" type="11"/>
+    <type id="17" name="int" imported="false" type="3"/>
+    <operator id="18" name="HybridCar_SM" imported="false" root="true" expanded="false">
+      <input id="19" name="Breaking_Input" clock="false" type="11"/>
+      <input id="20" name="Accelarator_Input" clock="false" type="11"/>
+      <input id="21" name="PriviousSpeed" clock="false" type="11"/>
+      <input id="22" name="Vb" clock="false" type="11"/>
+      <input id="23" name="Contact" clock="false" type="1"/>
+      <output id="24" name="PetrolEngine" clock="false" type="1"/>
+      <output id="25" name="ElectricEngine" clock="false" type="1"/>
+      <output id="26" name="Acc" clock="false" type="11"/>
+      <output id="27" name="Deacc" clock="false" type="11"/>
+      <output id="28" name="Cur_Speed" clock="false" type="11"/>
+      <output id="29" name="Battery_Level" clock="false" type="11"/>
+      <output id="30" name="Vmot1" clock="false" type="11"/>
+      <output id="31" name="Vmot2" clock="false" type="11"/>
+      <output id="32" name="Vmot3" clock="false" type="11"/>
+      <automaton id="33" name="PowerManagement">
+        <state id="34" name="Start_Off_State" initial="true" final="false" default="false">
+          <instance id="35" name="4" op="66" expanded="false"/>
+          <fork id="36" name="1" kind="strong">
+            <transition id="37" dest="40"/>
+          </fork>
+          <fork id="38" name="2" kind="strong">
+            <transition id="39" dest="56"/>
+          </fork>
+        </state>
+        <state id="40" name="Low_Acc_Or_Speed" initial="false" final="false" default="false">
+          <instance id="41" name="1" op="66" expanded="false"/>
+          <fork id="42" name="1" kind="strong">
+            <transition id="43" dest="56"/>
+          </fork>
+          <fork id="44" name="2" kind="strong">
+            <transition id="45" dest="48"/>
+          </fork>
+          <fork id="46" name="3" kind="strong">
+            <transition id="47" dest="34"/>
+          </fork>
+        </state>
+        <state id="48" name="Breaking_And_Regenrative_State" initial="false" final="false" default="false">
+          <instance id="49" name="2" op="66" expanded="false"/>
+          <fork id="50" name="1" kind="strong">
+            <transition id="51" dest="34"/>
+          </fork>
+          <fork id="52" name="2" kind="strong">
+            <transition id="53" dest="56"/>
+          </fork>
+          <fork id="54" name="3" kind="strong">
+            <transition id="55" dest="40"/>
+          </fork>
+        </state>
+        <state id="56" name="High_Acc_Or_Speed" initial="false" final="false" default="false">
+          <instance id="57" name="3" op="66" expanded="false"/>
+          <fork id="58" name="1" kind="strong">
+            <transition id="59" dest="40"/>
+          </fork>
+          <fork id="60" name="2" kind="strong">
+            <transition id="61" dest="48"/>
+          </fork>
+          <fork id="62" name="3" kind="strong">
+            <transition id="63" dest="34"/>
+          </fork>
+        </state>
+      </automaton>
+      <instance id="64" name="3" op="139" expanded="false"/>
+      <instance id="65" name="1" op="167" expanded="false"/>
+    </operator>
+    <operator id="66" name="ElectronicPower" imported="false" root="false" expanded="false">
+      <input id="67" name="Vbattery" clock="false" type="11"/>
+      <input id="68" name="V1" clock="false" type="11"/>
+      <input id="69" name="V2" clock="false" type="11"/>
+      <input id="70" name="V3" clock="false" type="11"/>
+      <input id="71" name="BatteryUsed" clock="false" type="1"/>
+      <output id="72" name="Vmot1" clock="false" type="11"/>
+      <output id="73" name="Vmot2" clock="false" type="11"/>
+      <output id="74" name="Vmot3" clock="false" type="11"/>
+      <output id="75" name="VBoost" clock="false" type="11"/>
+      <instance id="76" name="1" op="79" expanded="false"/>
+      <instance id="77" name="1" op="95" expanded="false"/>
+      <instance id="78" name="1" op="106" expanded="false"/>
+    </operator>
+    <operator id="79" name="Rectifier" imported="false" root="false" expanded="false">
+      <input id="80" name="V1" clock="false" type="11"/>
+      <input id="81" name="V2" clock="false" type="11"/>
+      <input id="82" name="V3" clock="false" type="11"/>
+      <output id="83" name="Vs" clock="false" type="11"/>
+      <fby id="84" name="1"/>
+      <fby id="85" name="2"/>
+      <fby id="86" name="3"/>
+      <fby id="87" name="4"/>
+      <fby id="88" name="5"/>
+      <instance id="89" name="1" op="177" expanded="false"/>
+      <instance id="90" name="2" op="177" expanded="false"/>
+      <instance id="91" name="1" op="183" expanded="true">
+        <input id="92" name="I1" clock="false" type="11"/>
+        <input id="93" name="I2" clock="false" type="11"/>
+        <output id="94" name="Ma_Output" clock="false" type="11"/>
+      </instance>
+    </operator>
+    <operator id="95" name="BoostConverter" imported="false" root="false" expanded="false">
+      <input id="96" name="InterruptorConductionTime" clock="false" type="11"/>
+      <input id="97" name="InterruptorLockingTime" clock="false" type="11"/>
+      <input id="98" name="Vin" clock="false" type="11"/>
+      <input id="99" name="BatteryUsed" clock="false" type="1"/>
+      <output id="100" name="Vout" clock="false" type="11"/>
+      <instance id="101" name="1" op="102" expanded="false"/>
+    </operator>
+    <operator id="102" name="Command" imported="false" root="false" expanded="false">
+      <input id="103" name="InterruptorConductionTime" clock="false" type="11"/>
+      <input id="104" name="InterruptorLockingTime" clock="false" type="11"/>
+      <output id="105" name="Alpha" clock="false" type="11"/>
+    </operator>
+    <operator id="106" name="Inverter" imported="false" root="false" expanded="false">
+      <input id="107" name="Vac" clock="false" type="11"/>
+      <output id="108" name="V3" clock="false" type="11"/>
+      <output id="109" name="V2" clock="false" type="11"/>
+      <output id="110" name="V1" clock="false" type="11"/>
+      <instance id="111" name="2" op="112" expanded="false"/>
+    </operator>
+    <operator id="112" name="ThreePhaseConverter" imported="false" root="false" expanded="false">
+      <input id="113" name="Vac" clock="false" type="11"/>
+      <output id="114" name="K1" clock="false" type="1"/>
+      <output id="115" name="K2" clock="false" type="1"/>
+      <output id="116" name="K3" clock="false" type="1"/>
+      <output id="117" name="notK1" clock="false" type="1"/>
+      <output id="118" name="notK2" clock="false" type="1"/>
+      <output id="119" name="notK3" clock="false" type="1"/>
+      <output id="120" name="V12" clock="false" type="11"/>
+      <output id="121" name="V23" clock="false" type="11"/>
+      <output id="122" name="V31" clock="false" type="11"/>
+      <instance id="123" name="1" op="136" expanded="false"/>
+      <block id="124" name="PhaseCalculator" type="1">
+        <branch id="125" name="else">
+          <branch id="126" name="else">
+            <branch id="127" name="else">
+              <branch id="128" name="else">
+                <branch id="129" name="else"/>
+                <branch id="130" name="then"/>
+              </branch>
+              <branch id="131" name="then"/>
+            </branch>
+            <branch id="132" name="then"/>
+          </branch>
+          <branch id="133" name="then"/>
+        </branch>
+        <branch id="134" name="then"/>
+      </block>
+      <arrow id="135" name="1"/>
+    </operator>
+    <operator id="136" name="ModCount" imported="false" root="false" expanded="false">
+      <output id="137" name="Count" clock="false" type="17"/>
+      <fby id="138" name="1"/>
+    </operator>
+    <operator id="139" name="DynamicControl" imported="false" root="false" expanded="false">
+      <input id="140" name="Breaking_Input" clock="false" type="11"/>
+      <input id="141" name="Accelarator_Input" clock="false" type="11"/>
+      <input id="142" name="PriviousSpeed" clock="false" type="11"/>
+      <output id="143" name="Accelaration" clock="false" type="11"/>
+      <output id="144" name="Deaccelaration" clock="false" type="11"/>
+      <output id="145" name="CurrentSpeed" clock="false" type="11"/>
+      <instance id="146" name="1" op="153" expanded="false"/>
+      <instance id="147" name="2" op="153" expanded="false"/>
+      <instance id="148" name="3" op="159" expanded="false"/>
+      <instance id="149" name="4" op="159" expanded="false"/>
+      <arrow id="150" name="1"/>
+      <arrow id="151" name="2"/>
+      <instance id="152" name="3" op="153" expanded="false"/>
+    </operator>
+    <operator id="153" name="Limiter" imported="false" root="false" expanded="false">
+      <input id="154" name="LUS_Input" clock="false" type="11"/>
+      <input id="155" name="HighLimit" clock="false" type="11"/>
+      <input id="156" name="LowLimit" clock="false" type="11"/>
+      <output id="157" name="LUS_Output" clock="false" type="11"/>
+      <assume id="158" name="A1"/>
+    </operator>
+    <operator id="159" name="Shaper" imported="false" root="false" expanded="false">
+      <input id="160" name="RL_Input" clock="false" type="11"/>
+      <input id="161" name="deltaT" clock="false" type="11"/>
+      <input id="162" name="Falling" clock="false" type="11"/>
+      <input id="163" name="Rising" clock="false" type="11"/>
+      <output id="164" name="RL_Output" clock="false" type="11"/>
+      <fby id="165" name="1"/>
+      <assume id="166" name="A1"/>
+    </operator>
+    <operator id="167" name="BatteryLevel" imported="false" root="false" expanded="false">
+      <input id="168" name="Vboost" clock="false" type="11"/>
+      <input id="169" name="Vb" clock="false" type="11"/>
+      <input id="170" name="BU" clock="false" type="1"/>
+      <output id="171" name="BatteryLevel" clock="false" type="11"/>
+      <fby id="172" name="2"/>
+      <fby id="173" name="1"/>
+    </operator>
+    <package id="174" name="math">
+      <operator id="175" name="Max3" imported="false" root="false" expanded="false"/>
+      <operator id="176" name="Max" imported="false" root="false" expanded="true"/>
+      <mono id="177" src="175">
+        <typeVar id="178" name="T" type="11"/>
+        <input id="179" name="I1" clock="false" type="11"/>
+        <input id="180" name="I2" clock="false" type="11"/>
+        <input id="181" name="I3" clock="false" type="11"/>
+        <output id="182" name="Ma3_Output" clock="false" type="11"/>
+      </mono>
+      <mono id="183" src="176">
+        <typeVar id="184" name="T" type="11"/>
+      </mono>
+    </package>
+  </model>
+  <generated>
+    <c>
+      <file id="185" name="HybridCar_SM.h">
+        <function id="186" name="HybridCar_SM_init">
+          <parameter id="187" name="outC" type="193" pointer="true"/>
+        </function>
+        <function id="188" name="HybridCar_SM_reset">
+          <parameter id="189" name="outC" type="193" pointer="true"/>
+        </function>
+        <function id="190" name="HybridCar_SM">
+          <parameter id="191" name="inC" type="210" pointer="true"/>
+          <parameter id="192" name="outC" type="193" pointer="true"/>
+        </function>
+        <struct id="193" name="outC_HybridCar_SM">
+          <field id="194" name="PetrolEngine" type="470" pointer="false"/>
+          <field id="195" name="ElectricEngine" type="470" pointer="false"/>
+          <field id="196" name="Acc" type="469" pointer="false"/>
+          <field id="197" name="Deacc" type="469" pointer="false"/>
+          <field id="198" name="Cur_Speed" type="469" pointer="false"/>
+          <field id="199" name="Battery_Level" type="469" pointer="false"/>
+          <field id="200" name="Vmot1" type="469" pointer="false"/>
+          <field id="201" name="Vmot2" type="469" pointer="false"/>
+          <field id="202" name="Vmot3" type="469" pointer="false"/>
+          <field id="203" name="PowerManagement_state_nxt" type="418" pointer="false"/>
+          <field id="204" name="Context_BatteryLevel_1" type="226" pointer="false"/>
+          <field id="205" name="Context_ElectronicPower_4" type="277" pointer="false"/>
+          <field id="206" name="Context_ElectronicPower_1" type="277" pointer="false"/>
+          <field id="207" name="Context_ElectronicPower_2" type="277" pointer="false"/>
+          <field id="208" name="Context_ElectronicPower_3" type="277" pointer="false"/>
+          <field id="209" name="Context_DynamicControl_3" type="239" pointer="false"/>
+        </struct>
+        <struct id="210" name="inC_HybridCar_SM">
+          <field id="211" name="Breaking_Input" type="469" pointer="false"/>
+          <field id="212" name="Accelarator_Input" type="469" pointer="false"/>
+          <field id="213" name="PriviousSpeed" type="469" pointer="false"/>
+          <field id="214" name="Vb" type="469" pointer="false"/>
+          <field id="215" name="Contact" type="470" pointer="false"/>
+        </struct>
+      </file>
+      <file id="216" name="BatteryLevel.h">
+        <function id="217" name="BatteryLevel_init">
+          <parameter id="218" name="outC" type="226" pointer="true"/>
+        </function>
+        <function id="219" name="BatteryLevel_reset">
+          <parameter id="220" name="outC" type="226" pointer="true"/>
+        </function>
+        <function id="221" name="BatteryLevel">
+          <parameter id="222" name="Vboost" type="469" pointer="false"/>
+          <parameter id="223" name="Vb" type="469" pointer="false"/>
+          <parameter id="224" name="BU" type="470" pointer="false"/>
+          <parameter id="225" name="outC" type="226" pointer="true"/>
+        </function>
+        <struct id="226" name="outC_BatteryLevel">
+          <field id="227" name="BatteryLevel" type="469" pointer="false"/>
+          <field id="228" name="init" type="470" pointer="false"/>
+        </struct>
+      </file>
+      <file id="229" name="DynamicControl.h">
+        <function id="230" name="DynamicControl_init">
+          <parameter id="231" name="outC" type="239" pointer="true"/>
+        </function>
+        <function id="232" name="DynamicControl_reset">
+          <parameter id="233" name="outC" type="239" pointer="true"/>
+        </function>
+        <function id="234" name="DynamicControl">
+          <parameter id="235" name="Breaking_Input" type="469" pointer="false"/>
+          <parameter id="236" name="Accelarator_Input" type="469" pointer="false"/>
+          <parameter id="237" name="PriviousSpeed" type="469" pointer="false"/>
+          <parameter id="238" name="outC" type="239" pointer="true"/>
+        </function>
+        <struct id="239" name="outC_DynamicControl">
+          <field id="240" name="Accelaration" type="469" pointer="false"/>
+          <field id="241" name="Deaccelaration" type="469" pointer="false"/>
+          <field id="242" name="CurrentSpeed" type="469" pointer="false"/>
+          <field id="243" name="init" type="470" pointer="false"/>
+          <field id="244" name="Context_Shaper_3" type="257" pointer="false"/>
+          <field id="245" name="Context_Shaper_4" type="257" pointer="false"/>
+        </struct>
+      </file>
+      <file id="246" name="Shaper.h">
+        <function id="247" name="Shaper_init">
+          <parameter id="248" name="outC" type="257" pointer="true"/>
+        </function>
+        <function id="249" name="Shaper_reset">
+          <parameter id="250" name="outC" type="257" pointer="true"/>
+        </function>
+        <function id="251" name="Shaper">
+          <parameter id="252" name="RL_Input" type="469" pointer="false"/>
+          <parameter id="253" name="deltaT" type="469" pointer="false"/>
+          <parameter id="254" name="Falling" type="469" pointer="false"/>
+          <parameter id="255" name="Rising" type="469" pointer="false"/>
+          <parameter id="256" name="outC" type="257" pointer="true"/>
+        </function>
+        <struct id="257" name="outC_Shaper">
+          <field id="258" name="RL_Output" type="469" pointer="false"/>
+          <field id="259" name="init" type="470" pointer="false"/>
+        </struct>
+      </file>
+      <file id="260" name="Limiter.h">
+        <function id="261" name="Limiter" returnType="469">
+          <parameter id="262" name="LUS_Input" type="469" pointer="false"/>
+          <parameter id="263" name="HighLimit" type="469" pointer="false"/>
+          <parameter id="264" name="LowLimit" type="469" pointer="false"/>
+        </function>
+      </file>
+      <file id="265" name="ElectronicPower.h">
+        <function id="266" name="ElectronicPower_init">
+          <parameter id="267" name="outC" type="277" pointer="true"/>
+        </function>
+        <function id="268" name="ElectronicPower_reset">
+          <parameter id="269" name="outC" type="277" pointer="true"/>
+        </function>
+        <function id="270" name="ElectronicPower">
+          <parameter id="271" name="Vbattery" type="469" pointer="false"/>
+          <parameter id="272" name="V1" type="469" pointer="false"/>
+          <parameter id="273" name="V2" type="469" pointer="false"/>
+          <parameter id="274" name="V3" type="469" pointer="false"/>
+          <parameter id="275" name="BatteryUsed" type="470" pointer="false"/>
+          <parameter id="276" name="outC" type="277" pointer="true"/>
+        </function>
+        <struct id="277" name="outC_ElectronicPower">
+          <field id="278" name="Vmot1" type="469" pointer="false"/>
+          <field id="279" name="Vmot2" type="469" pointer="false"/>
+          <field id="280" name="Vmot3" type="469" pointer="false"/>
+          <field id="281" name="VBoost" type="469" pointer="false"/>
+          <field id="282" name="Context_Inverter_1" type="292" pointer="false"/>
+          <field id="283" name="Context_Rectifier_1" type="347" pointer="false"/>
+        </struct>
+      </file>
+      <file id="284" name="Inverter.h">
+        <function id="285" name="Inverter_init">
+          <parameter id="286" name="outC" type="292" pointer="true"/>
+        </function>
+        <function id="287" name="Inverter_reset">
+          <parameter id="288" name="outC" type="292" pointer="true"/>
+        </function>
+        <function id="289" name="Inverter">
+          <parameter id="290" name="Vac" type="469" pointer="false"/>
+          <parameter id="291" name="outC" type="292" pointer="true"/>
+        </function>
+        <struct id="292" name="outC_Inverter">
+          <field id="293" name="V3" type="469" pointer="false"/>
+          <field id="294" name="V2" type="469" pointer="false"/>
+          <field id="295" name="V1" type="469" pointer="false"/>
+          <field id="296" name="Context_ThreePhaseConverter_2" type="305" pointer="false"/>
+        </struct>
+      </file>
+      <file id="297" name="ThreePhaseConverter.h">
+        <function id="298" name="ThreePhaseConverter_init">
+          <parameter id="299" name="outC" type="305" pointer="true"/>
+        </function>
+        <function id="300" name="ThreePhaseConverter_reset">
+          <parameter id="301" name="outC" type="305" pointer="true"/>
+        </function>
+        <function id="302" name="ThreePhaseConverter">
+          <parameter id="303" name="Vac" type="469" pointer="false"/>
+          <parameter id="304" name="outC" type="305" pointer="true"/>
+        </function>
+        <struct id="305" name="outC_ThreePhaseConverter">
+          <field id="306" name="K1" type="470" pointer="false"/>
+          <field id="307" name="K2" type="470" pointer="false"/>
+          <field id="308" name="K3" type="470" pointer="false"/>
+          <field id="309" name="notK1" type="470" pointer="false"/>
+          <field id="310" name="notK2" type="470" pointer="false"/>
+          <field id="311" name="notK3" type="470" pointer="false"/>
+          <field id="312" name="V12" type="469" pointer="false"/>
+          <field id="313" name="V23" type="469" pointer="false"/>
+          <field id="314" name="V31" type="469" pointer="false"/>
+          <field id="315" name="init" type="470" pointer="false"/>
+          <field id="316" name="Context_ModCount_1" type="324" pointer="false"/>
+        </struct>
+      </file>
+      <file id="317" name="ModCount.h">
+        <function id="318" name="ModCount_init">
+          <parameter id="319" name="outC" type="324" pointer="true"/>
+        </function>
+        <function id="320" name="ModCount_reset">
+          <parameter id="321" name="outC" type="324" pointer="true"/>
+        </function>
+        <function id="322" name="ModCount">
+          <parameter id="323" name="outC" type="324" pointer="true"/>
+        </function>
+        <struct id="324" name="outC_ModCount">
+          <field id="325" name="Count" type="401" pointer="false"/>
+          <field id="326" name="_L5" type="459" pointer="false"/>
+        </struct>
+      </file>
+      <file id="327" name="BoostConverter.h">
+        <function id="328" name="BoostConverter" returnType="469">
+          <parameter id="329" name="InterruptorConductionTime" type="469" pointer="false"/>
+          <parameter id="330" name="InterruptorLockingTime" type="469" pointer="false"/>
+          <parameter id="331" name="Vin" type="469" pointer="false"/>
+          <parameter id="332" name="BatteryUsed" type="470" pointer="false"/>
+        </function>
+      </file>
+      <file id="333" name="Command.h">
+        <function id="334" name="Command" returnType="469">
+          <parameter id="335" name="InterruptorConductionTime" type="469" pointer="false"/>
+          <parameter id="336" name="InterruptorLockingTime" type="469" pointer="false"/>
+        </function>
+      </file>
+      <file id="337" name="Rectifier.h">
+        <function id="338" name="Rectifier_init">
+          <parameter id="339" name="outC" type="347" pointer="true"/>
+        </function>
+        <function id="340" name="Rectifier_reset">
+          <parameter id="341" name="outC" type="347" pointer="true"/>
+        </function>
+        <function id="342" name="Rectifier">
+          <parameter id="343" name="V1" type="469" pointer="false"/>
+          <parameter id="344" name="V2" type="469" pointer="false"/>
+          <parameter id="345" name="V3" type="469" pointer="false"/>
+          <parameter id="346" name="outC" type="347" pointer="true"/>
+        </function>
+        <struct id="347" name="outC_Rectifier">
+          <field id="348" name="Vs" type="469" pointer="false"/>
+          <field id="349" name="fby_3" type="405" pointer="false"/>
+          <field id="350" name="fby_4" type="402" pointer="false"/>
+          <field id="351" name="fby_1" type="411" pointer="false"/>
+          <field id="352" name="fby_2" type="408" pointer="false"/>
+          <field id="353" name="init" type="470" pointer="false"/>
+          <field id="354" name="_L3" type="469" pointer="false"/>
+        </struct>
+      </file>
+      <file id="355" name="Max3_math_float32.h">
+        <function id="356" name="Max3_math_float32" returnType="469">
+          <parameter id="357" name="I1_float32" type="469" pointer="false"/>
+          <parameter id="358" name="I2_float32" type="469" pointer="false"/>
+          <parameter id="359" name="I3_float32" type="469" pointer="false"/>
+        </function>
+      </file>
+      <file id="360" name="kcg_types.h">
+        <ifdef id="361" name="kcg_use_array_float32_2">
+          <function id="362" name="kcg_comp_array_float32_2" returnType="470">
+            <parameter id="391" name="kcg_c1" type="417" pointer="true"/>
+            <parameter id="392" name="kcg_c2" type="417" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="365" name="kcg_use_array_float32_5">
+          <function id="366" name="kcg_comp_array_float32_5" returnType="470">
+            <parameter id="391" name="kcg_c1" type="416" pointer="true"/>
+            <parameter id="392" name="kcg_c2" type="416" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="369" name="kcg_use_array_float32_3">
+          <function id="370" name="kcg_comp_array_float32_3" returnType="470">
+            <parameter id="391" name="kcg_c1" type="415" pointer="true"/>
+            <parameter id="392" name="kcg_c2" type="415" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="373" name="kcg_use_array_float32_4">
+          <function id="374" name="kcg_comp_array_float32_4" returnType="470">
+            <parameter id="391" name="kcg_c1" type="414" pointer="true"/>
+            <parameter id="392" name="kcg_c2" type="414" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="377" name="kcg_use_struct_3674">
+          <function id="378" name="kcg_comp_struct_3674" returnType="470">
+            <parameter id="391" name="kcg_c1" type="411" pointer="true"/>
+            <parameter id="392" name="kcg_c2" type="411" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="381" name="kcg_use_struct_3664">
+          <function id="382" name="kcg_comp_struct_3664" returnType="470">
+            <parameter id="391" name="kcg_c1" type="408" pointer="true"/>
+            <parameter id="392" name="kcg_c2" type="408" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="385" name="kcg_use_struct_3654">
+          <function id="386" name="kcg_comp_struct_3654" returnType="470">
+            <parameter id="391" name="kcg_c1" type="405" pointer="true"/>
+            <parameter id="392" name="kcg_c2" type="405" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="389" name="kcg_use_struct_3648">
+          <function id="390" name="kcg_comp_struct_3648" returnType="470">
+            <parameter id="391" name="kcg_c1" type="402" pointer="true"/>
+            <parameter id="392" name="kcg_c2" type="402" pointer="true"/>
+          </function>
+        </ifdef>
+        <macro id="393" name="kcg_copy_array_float32_2"/>
+        <macro id="394" name="kcg_copy_array_float32_5"/>
+        <macro id="395" name="kcg_copy_array_float32_3"/>
+        <macro id="396" name="kcg_copy_array_float32_4"/>
+        <macro id="397" name="kcg_copy_struct_3674"/>
+        <macro id="398" name="kcg_copy_struct_3664"/>
+        <macro id="399" name="kcg_copy_struct_3654"/>
+        <macro id="400" name="kcg_copy_struct_3648"/>
+        <typedef id="401" name="_2_int" aliasType="459"/>
+        <struct id="402" name="struct_3648" tagName="kcg_tag_struct_3648">
+          <field id="403" name="idx" type="467" pointer="false"/>
+          <field id="404" name="items" type="417" pointer="false"/>
+        </struct>
+        <struct id="405" name="struct_3654" tagName="kcg_tag_struct_3654">
+          <field id="406" name="idx" type="467" pointer="false"/>
+          <field id="407" name="items" type="415" pointer="false"/>
+        </struct>
+        <struct id="408" name="struct_3664" tagName="kcg_tag_struct_3664">
+          <field id="409" name="idx" type="467" pointer="false"/>
+          <field id="410" name="items" type="414" pointer="false"/>
+        </struct>
+        <struct id="411" name="struct_3674" tagName="kcg_tag_struct_3674">
+          <field id="412" name="idx" type="467" pointer="false"/>
+          <field id="413" name="items" type="416" pointer="false"/>
+        </struct>
+        <array id="414" name="array_float32_4" baseType="469" size="4"/>
+        <array id="415" name="array_float32_3" baseType="469" size="3"/>
+        <array id="416" name="array_float32_5" baseType="469" size="5"/>
+        <array id="417" name="array_float32_2" baseType="469" size="2"/>
+        <enum id="418" name="SSM_ST_PowerManagement" tagName="kcg_tag_SSM_ST_PowerManagement">
+          <value id="419" name="SSM_st_Start_Off_State_PowerManagement"/>
+          <value id="420" name="SSM_st_Low_Acc_Or_Speed_PowerManagement"/>
+          <value id="421" name="SSM_st_Breaking_And_Regenrative_State_PowerManagement"/>
+          <value id="422" name="SSM_st_High_Acc_Or_Speed_PowerManagement"/>
+        </enum>
+        <enum id="423" name="SSM_TR_PowerManagement" tagName="kcg_tag_SSM_TR_PowerManagement">
+          <value id="424" name="SSM_TR_no_trans_PowerManagement"/>
+          <value id="425" name="SSM_TR_Start_Off_State_Low_Acc_Or_Speed_1_Start_Off_State_PowerManagement"/>
+          <value id="426" name="SSM_TR_Start_Off_State_High_Acc_Or_Speed_2_Start_Off_State_PowerManagement"/>
+          <value id="427" name="SSM_TR_Low_Acc_Or_Speed_High_Acc_Or_Speed_1_Low_Acc_Or_Speed_PowerManagement"/>
+          <value id="428" name="SSM_TR_Low_Acc_Or_Speed_Breaking_And_Regenrative_State_2_Low_Acc_Or_Speed_PowerManagement"/>
+          <value id="429" name="SSM_TR_Low_Acc_Or_Speed_Start_Off_State_3_Low_Acc_Or_Speed_PowerManagement"/>
+          <value id="430"
+              name="SSM_TR_Breaking_And_Regenrative_State_Start_Off_State_1_Breaking_And_Regenrative_State_PowerManagement"/>
+          <value id="431"
+              name="_3_SSM_TR_Breaking_And_Regenrative_State_High_Acc_Or_Speed_2_Breaking_And_Regenrative_State_PowerManagement"/>
+          <value id="432"
+              name="_4_SSM_TR_Breaking_And_Regenrative_State_Low_Acc_Or_Speed_3_Breaking_And_Regenrative_State_PowerManagement"/>
+          <value id="433" name="SSM_TR_High_Acc_Or_Speed_Low_Acc_Or_Speed_1_High_Acc_Or_Speed_PowerManagement"/>
+          <value id="434" name="SSM_TR_High_Acc_Or_Speed_Breaking_And_Regenrative_State_2_High_Acc_Or_Speed_PowerManagement"/>
+          <value id="435" name="SSM_TR_High_Acc_Or_Speed_Start_Off_State_3_High_Acc_Or_Speed_PowerManagement"/>
+        </enum>
+        <macro id="436" name="kcg_assign_array"/>
+        <macro id="437" name="kcg_assign_struct"/>
+        <macro id="438" name="kcg_lnot_uint8"/>
+        <macro id="439" name="kcg_lnot_uint16"/>
+        <macro id="440" name="kcg_lnot_uint32"/>
+        <macro id="441" name="kcg_lnot_uint64"/>
+        <macro id="442" name="kcg_lsl_uint8"/>
+        <macro id="443" name="kcg_lsl_uint16"/>
+        <macro id="444" name="kcg_lsl_uint32"/>
+        <macro id="445" name="kcg_lsl_uint64"/>
+        <macro id="446" name="kcg_true"/>
+        <macro id="447" name="kcg_false"/>
+        <macro id="448" name="kcg_lit_int8"/>
+        <macro id="449" name="kcg_lit_int16"/>
+        <macro id="450" name="kcg_lit_int32"/>
+        <macro id="451" name="kcg_lit_int64"/>
+        <macro id="452" name="kcg_lit_uint8"/>
+        <macro id="453" name="kcg_lit_uint16"/>
+        <macro id="454" name="kcg_lit_uint32"/>
+        <macro id="455" name="kcg_lit_uint64"/>
+        <macro id="456" name="kcg_lit_size"/>
+        <macro id="457" name="kcg_lit_float64"/>
+        <macro id="458" name="kcg_lit_float32"/>
+        <predefType id="459" name="kcg_int8"/>
+        <predefType id="460" name="kcg_int16"/>
+        <predefType id="461" name="kcg_int32"/>
+        <predefType id="462" name="kcg_int64"/>
+        <predefType id="463" name="kcg_uint8"/>
+        <predefType id="464" name="kcg_uint16"/>
+        <predefType id="465" name="kcg_uint32"/>
+        <predefType id="466" name="kcg_uint64"/>
+        <predefType id="467" name="kcg_size"/>
+        <predefType id="468" name="kcg_float64"/>
+        <predefType id="469" name="kcg_float32"/>
+        <predefType id="470" name="kcg_bool"/>
+        <predefType id="471" name="kcg_char"/>
+        <macro id="472" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="473" name="kcg_consts.h">
+        <macro id="474" name="F" type="470"/>
+        <macro id="475" name="T" type="470"/>
+        <macro id="476" name="Gain" type="469"/>
+      </file>
+      <file id="477" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="468" dstId="457" role="wrapped-lit"/>
+    <map srcId="469" dstId="458" role="wrapped-lit"/>
+    <map srcId="467" dstId="456" role="wrapped-lit"/>
+    <map srcId="466" dstId="455" role="wrapped-lit"/>
+    <map srcId="466" dstId="441" role="wrapped-lnot"/>
+    <map srcId="466" dstId="445" role="wrapped-lsl"/>
+    <map srcId="465" dstId="454" role="wrapped-lit"/>
+    <map srcId="465" dstId="440" role="wrapped-lnot"/>
+    <map srcId="465" dstId="444" role="wrapped-lsl"/>
+    <map srcId="464" dstId="453" role="wrapped-lit"/>
+    <map srcId="464" dstId="439" role="wrapped-lnot"/>
+    <map srcId="464" dstId="443" role="wrapped-lsl"/>
+    <map srcId="463" dstId="452" role="wrapped-lit"/>
+    <map srcId="463" dstId="438" role="wrapped-lnot"/>
+    <map srcId="463" dstId="442" role="wrapped-lsl"/>
+    <map srcId="462" dstId="451" role="wrapped-lit"/>
+    <map srcId="461" dstId="450" role="wrapped-lit"/>
+    <map srcId="460" dstId="449" role="wrapped-lit"/>
+    <map srcId="459" dstId="448" role="wrapped-lit"/>
+    <map srcId="417" dstId="361" role="type-use"/>
+    <map srcId="417" dstId="362" role="type-comparison"/>
+    <map srcId="417" dstId="393" role="type-copy"/>
+    <map srcId="411" dstId="377" role="type-use"/>
+    <map srcId="411" dstId="378" role="type-comparison"/>
+    <map srcId="411" dstId="397" role="type-copy"/>
+    <map srcId="416" dstId="365" role="type-use"/>
+    <map srcId="416" dstId="366" role="type-comparison"/>
+    <map srcId="416" dstId="394" role="type-copy"/>
+    <map srcId="408" dstId="381" role="type-use"/>
+    <map srcId="408" dstId="382" role="type-comparison"/>
+    <map srcId="408" dstId="398" role="type-copy"/>
+    <map srcId="415" dstId="369" role="type-use"/>
+    <map srcId="415" dstId="370" role="type-comparison"/>
+    <map srcId="415" dstId="395" role="type-copy"/>
+    <map srcId="405" dstId="385" role="type-use"/>
+    <map srcId="405" dstId="386" role="type-comparison"/>
+    <map srcId="405" dstId="399" role="type-copy"/>
+    <map srcId="402" dstId="389" role="type-use"/>
+    <map srcId="402" dstId="390" role="type-comparison"/>
+    <map srcId="402" dstId="400" role="type-copy"/>
+    <map srcId="414" dstId="373" role="type-use"/>
+    <map srcId="414" dstId="374" role="type-comparison"/>
+    <map srcId="414" dstId="396" role="type-copy"/>
+  </generated>
+  <map modelId="63" generatedId="435"/>
+  <map modelId="61" generatedId="434"/>
+  <map modelId="59" generatedId="433"/>
+  <map modelId="55" generatedId="432"/>
+  <map modelId="53" generatedId="431"/>
+  <map modelId="51" generatedId="430"/>
+  <map modelId="47" generatedId="429"/>
+  <map modelId="45" generatedId="428"/>
+  <map modelId="43" generatedId="427"/>
+  <map modelId="39" generatedId="426"/>
+  <map modelId="37" generatedId="425"/>
+  <map modelId="33" generatedId="424" role="autom-no-trans-enum"/>
+  <map modelId="56" generatedId="422"/>
+  <map modelId="34" generatedId="419"/>
+  <map modelId="48" generatedId="421"/>
+  <map modelId="40" generatedId="420"/>
+  <map modelId="18" generatedId="187" role="context-parameter"/>
+  <map modelId="18" generatedId="186" role="init-method"/>
+  <map modelId="18" generatedId="189" role="context-parameter"/>
+  <map modelId="18" generatedId="188" role="reset-method"/>
+  <map modelId="18" generatedId="191" role="input-struct-parameter"/>
+  <map modelId="23" generatedId="215"/>
+  <map modelId="22" generatedId="214"/>
+  <map modelId="21" generatedId="213"/>
+  <map modelId="20" generatedId="212"/>
+  <map modelId="19" generatedId="211"/>
+  <map modelId="18" generatedId="210" role="input-struct-type"/>
+  <map modelId="18" generatedId="192" role="context-parameter"/>
+  <map modelId="64" generatedId="209"/>
+  <map modelId="57" generatedId="208"/>
+  <map modelId="49" generatedId="207"/>
+  <map modelId="41" generatedId="206"/>
+  <map modelId="35" generatedId="205"/>
+  <map modelId="65" generatedId="204"/>
+  <map modelId="33" generatedId="203" role="autom-next-state"/>
+  <map modelId="32" generatedId="202"/>
+  <map modelId="31" generatedId="201"/>
+  <map modelId="30" generatedId="200"/>
+  <map modelId="29" generatedId="199"/>
+  <map modelId="28" generatedId="198"/>
+  <map modelId="27" generatedId="197"/>
+  <map modelId="26" generatedId="196"/>
+  <map modelId="25" generatedId="195"/>
+  <map modelId="24" generatedId="194"/>
+  <map modelId="18" generatedId="193" role="context-type"/>
+  <map modelId="18" generatedId="185" role="interface-file"/>
+  <map modelId="18" generatedId="190" role="cycle-method"/>
+  <map modelId="167" generatedId="218" role="context-parameter"/>
+  <map modelId="167" generatedId="217" role="init-method"/>
+  <map modelId="167" generatedId="220" role="context-parameter"/>
+  <map modelId="167" generatedId="219" role="reset-method"/>
+  <map modelId="170" generatedId="224"/>
+  <map modelId="169" generatedId="223"/>
+  <map modelId="168" generatedId="222"/>
+  <map modelId="167" generatedId="225" role="context-parameter"/>
+  <map modelId="173" generatedId="228" role="init"/>
+  <map modelId="172" generatedId="228" role="init"/>
+  <map modelId="171" generatedId="227"/>
+  <map modelId="172" generatedId="227" role="memory"/>
+  <map modelId="173" generatedId="227" role="memory"/>
+  <map modelId="167" generatedId="226" role="context-type"/>
+  <map modelId="167" generatedId="216" role="interface-file"/>
+  <map modelId="167" generatedId="221" role="cycle-method"/>
+  <map modelId="139" generatedId="231" role="context-parameter"/>
+  <map modelId="139" generatedId="230" role="init-method"/>
+  <map modelId="139" generatedId="233" role="context-parameter"/>
+  <map modelId="139" generatedId="232" role="reset-method"/>
+  <map modelId="142" generatedId="237"/>
+  <map modelId="141" generatedId="236"/>
+  <map modelId="140" generatedId="235"/>
+  <map modelId="139" generatedId="238" role="context-parameter"/>
+  <map modelId="149" generatedId="245"/>
+  <map modelId="148" generatedId="244"/>
+  <map modelId="150" generatedId="243" role="init"/>
+  <map modelId="151" generatedId="243" role="init"/>
+  <map modelId="145" generatedId="242"/>
+  <map modelId="144" generatedId="241"/>
+  <map modelId="143" generatedId="240"/>
+  <map modelId="139" generatedId="239" role="context-type"/>
+  <map modelId="139" generatedId="229" role="interface-file"/>
+  <map modelId="139" generatedId="234" role="cycle-method"/>
+  <map modelId="159" generatedId="248" role="context-parameter"/>
+  <map modelId="159" generatedId="247" role="init-method"/>
+  <map modelId="159" generatedId="250" role="context-parameter"/>
+  <map modelId="159" generatedId="249" role="reset-method"/>
+  <map modelId="163" generatedId="255"/>
+  <map modelId="162" generatedId="254"/>
+  <map modelId="161" generatedId="253"/>
+  <map modelId="160" generatedId="252"/>
+  <map modelId="159" generatedId="256" role="context-parameter"/>
+  <map modelId="165" generatedId="259" role="init"/>
+  <map modelId="164" generatedId="258"/>
+  <map modelId="165" generatedId="258" role="memory"/>
+  <map modelId="159" generatedId="257" role="context-type"/>
+  <map modelId="159" generatedId="246" role="interface-file"/>
+  <map modelId="159" generatedId="251" role="cycle-method"/>
+  <map modelId="156" generatedId="264"/>
+  <map modelId="155" generatedId="263"/>
+  <map modelId="154" generatedId="262"/>
+  <map modelId="153" generatedId="260" role="interface-file"/>
+  <map modelId="153" generatedId="261" role="cycle-method"/>
+  <map modelId="66" generatedId="267" role="context-parameter"/>
+  <map modelId="66" generatedId="266" role="init-method"/>
+  <map modelId="66" generatedId="269" role="context-parameter"/>
+  <map modelId="66" generatedId="268" role="reset-method"/>
+  <map modelId="71" generatedId="275"/>
+  <map modelId="70" generatedId="274"/>
+  <map modelId="69" generatedId="273"/>
+  <map modelId="68" generatedId="272"/>
+  <map modelId="67" generatedId="271"/>
+  <map modelId="66" generatedId="276" role="context-parameter"/>
+  <map modelId="76" generatedId="283"/>
+  <map modelId="78" generatedId="282"/>
+  <map modelId="75" generatedId="281"/>
+  <map modelId="74" generatedId="280"/>
+  <map modelId="73" generatedId="279"/>
+  <map modelId="72" generatedId="278"/>
+  <map modelId="66" generatedId="277" role="context-type"/>
+  <map modelId="66" generatedId="265" role="interface-file"/>
+  <map modelId="66" generatedId="270" role="cycle-method"/>
+  <map modelId="106" generatedId="286" role="context-parameter"/>
+  <map modelId="106" generatedId="285" role="init-method"/>
+  <map modelId="106" generatedId="288" role="context-parameter"/>
+  <map modelId="106" generatedId="287" role="reset-method"/>
+  <map modelId="107" generatedId="290"/>
+  <map modelId="106" generatedId="291" role="context-parameter"/>
+  <map modelId="111" generatedId="296"/>
+  <map modelId="110" generatedId="295"/>
+  <map modelId="109" generatedId="294"/>
+  <map modelId="108" generatedId="293"/>
+  <map modelId="106" generatedId="292" role="context-type"/>
+  <map modelId="106" generatedId="284" role="interface-file"/>
+  <map modelId="106" generatedId="289" role="cycle-method"/>
+  <map modelId="112" generatedId="299" role="context-parameter"/>
+  <map modelId="112" generatedId="298" role="init-method"/>
+  <map modelId="112" generatedId="301" role="context-parameter"/>
+  <map modelId="112" generatedId="300" role="reset-method"/>
+  <map modelId="113" generatedId="303"/>
+  <map modelId="112" generatedId="304" role="context-parameter"/>
+  <map modelId="123" generatedId="316"/>
+  <map modelId="135" generatedId="315" role="init"/>
+  <map modelId="122" generatedId="314"/>
+  <map modelId="121" generatedId="313"/>
+  <map modelId="120" generatedId="312"/>
+  <map modelId="119" generatedId="311"/>
+  <map modelId="118" generatedId="310"/>
+  <map modelId="117" generatedId="309"/>
+  <map modelId="116" generatedId="308"/>
+  <map modelId="115" generatedId="307"/>
+  <map modelId="114" generatedId="306"/>
+  <map modelId="112" generatedId="305" role="context-type"/>
+  <map modelId="112" generatedId="297" role="interface-file"/>
+  <map modelId="112" generatedId="302" role="cycle-method"/>
+  <map modelId="136" generatedId="319" role="context-parameter"/>
+  <map modelId="136" generatedId="318" role="init-method"/>
+  <map modelId="136" generatedId="321" role="context-parameter"/>
+  <map modelId="136" generatedId="320" role="reset-method"/>
+  <map modelId="136" generatedId="323" role="context-parameter"/>
+  <map modelId="138" generatedId="326" role="memory"/>
+  <map modelId="137" generatedId="325"/>
+  <map modelId="136" generatedId="324" role="context-type"/>
+  <map modelId="136" generatedId="317" role="interface-file"/>
+  <map modelId="136" generatedId="322" role="cycle-method"/>
+  <map modelId="99" generatedId="332"/>
+  <map modelId="98" generatedId="331"/>
+  <map modelId="97" generatedId="330"/>
+  <map modelId="96" generatedId="329"/>
+  <map modelId="95" generatedId="327" role="interface-file"/>
+  <map modelId="95" generatedId="328" role="cycle-method"/>
+  <map modelId="104" generatedId="336"/>
+  <map modelId="103" generatedId="335"/>
+  <map modelId="102" generatedId="333" role="interface-file"/>
+  <map modelId="102" generatedId="334" role="cycle-method"/>
+  <map modelId="79" generatedId="339" role="context-parameter"/>
+  <map modelId="79" generatedId="338" role="init-method"/>
+  <map modelId="79" generatedId="341" role="context-parameter"/>
+  <map modelId="79" generatedId="340" role="reset-method"/>
+  <map modelId="82" generatedId="345"/>
+  <map modelId="81" generatedId="344"/>
+  <map modelId="80" generatedId="343"/>
+  <map modelId="79" generatedId="346" role="context-parameter"/>
+  <map modelId="88" generatedId="354" role="memory"/>
+  <map modelId="84" generatedId="353" role="init"/>
+  <map modelId="85" generatedId="353" role="init"/>
+  <map modelId="86" generatedId="353" role="init"/>
+  <map modelId="87" generatedId="353" role="init"/>
+  <map modelId="85" generatedId="352" role="memory"/>
+  <map modelId="84" generatedId="351" role="memory"/>
+  <map modelId="87" generatedId="350" role="memory"/>
+  <map modelId="86" generatedId="349" role="memory"/>
+  <map modelId="83" generatedId="348"/>
+  <map modelId="79" generatedId="347" role="context-type"/>
+  <map modelId="79" generatedId="337" role="interface-file"/>
+  <map modelId="79" generatedId="342" role="cycle-method"/>
+  <map modelId="181" generatedId="359"/>
+  <map modelId="180" generatedId="358"/>
+  <map modelId="179" generatedId="357"/>
+  <map modelId="177" generatedId="355" role="interface-file"/>
+  <map modelId="177" generatedId="356" role="cycle-method"/>
+  <map modelId="16" generatedId="476"/>
+  <map modelId="15" generatedId="475"/>
+  <map modelId="14" generatedId="474"/>
+  <map modelId="17" generatedId="401"/>
+  <map modelId="33" generatedId="423" role="autom-transitions-type"/>
+  <map modelId="33" generatedId="418" role="autom-states-type"/>
+  <map modelId="2" generatedId="471"/>
+  <map modelId="1" generatedId="470"/>
+  <map modelId="12" generatedId="468"/>
+  <map modelId="11" generatedId="469"/>
+  <map modelId="13" generatedId="467"/>
+  <map modelId="10" generatedId="466"/>
+  <map modelId="9" generatedId="465"/>
+  <map modelId="8" generatedId="464"/>
+  <map modelId="7" generatedId="463"/>
+  <map modelId="6" generatedId="462"/>
+  <map modelId="5" generatedId="461"/>
+  <map modelId="4" generatedId="460"/>
+  <map modelId="3" generatedId="459"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2020-06-09T13:17:57
+*************************************************************$-->

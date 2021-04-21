@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="D:/Hybrid_Car/KCG/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#off#"/>
+    <Option name="debug" value="#off#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="D:/Hybrid_Car/KCG"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="HybridCar_SM"/>
+    <Option name="auth" value="#off#"/>
+    <Constant macroDef="true" scadeName="F" scadeType="bool" targetName="F" targetType="kcg_bool"/>
+    <Constant macroDef="true" scadeName="T" scadeType="bool" targetName="T" targetType="kcg_bool"/>
+    <Constant macroDef="true" scadeName="Gain" scadeType="float32" targetName="Gain" targetType="kcg_float32"/>
+    <NamedType refType="kcg_int8" scadeName="int" targetName="_2_int"/>
+    <RootNode headerFile="HybridCar_SM.h" scadeName="HybridCar_SM" targetCycleFct="HybridCar_SM" targetInitFct="HybridCar_SM_reset" targetInitializationFct="HybridCar_SM_init">
+      <Input inCtx="true" scadeName="Breaking_Input" scadeType="float32" targetName="Breaking_Input" targetType="kcg_float32"/>
+      <Input inCtx="true" scadeName="Accelarator_Input" scadeType="float32" targetName="Accelarator_Input" targetType="kcg_float32"/>
+      <Input inCtx="true" scadeName="PriviousSpeed" scadeType="float32" targetName="PriviousSpeed" targetType="kcg_float32"/>
+      <Input inCtx="true" scadeName="Vb" scadeType="float32" targetName="Vb" targetType="kcg_float32"/>
+      <Input inCtx="true" scadeName="Contact" scadeType="bool" targetName="Contact" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="PetrolEngine" scadeType="bool" targetName="PetrolEngine" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="ElectricEngine" scadeType="bool" targetName="ElectricEngine" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="Acc" scadeType="float32" targetName="Acc" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Deacc" scadeType="float32" targetName="Deacc" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Cur_Speed" scadeType="float32" targetName="Cur_Speed" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Battery_Level" scadeType="float32" targetName="Battery_Level" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Vmot1" scadeType="float32" targetName="Vmot1" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Vmot2" scadeType="float32" targetName="Vmot2" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Vmot3" scadeType="float32" targetName="Vmot3" targetType="kcg_float32"/>
+      <Automaton scadeName="PowerManagement" targetStatesType="SSM_ST_PowerManagement" targetTransitionsType="SSM_TR_PowerManagement">
+        <State scadeName="Start_Off_State" targetName="SSM_st_Start_Off_State_PowerManagement">
+          <NodeInstance instName="4" refName="ElectronicPower" scadeName="ElectronicPower">
+            <OutCtxVar targetName="Context_ElectronicPower_4"/>
+          </NodeInstance>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Low_Acc_Or_Speed" targetName="SSM_TR_Start_Off_State_Low_Acc_Or_Speed_1_Start_Off_State_PowerManagement"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="High_Acc_Or_Speed" targetName="SSM_TR_Start_Off_State_High_Acc_Or_Speed_2_Start_Off_State_PowerManagement"/>
+          </Fork>
+        </State>
+        <State scadeName="Low_Acc_Or_Speed" targetName="SSM_st_Low_Acc_Or_Speed_PowerManagement">
+          <NodeInstance instName="1" refName="ElectronicPower" scadeName="ElectronicPower">
+            <OutCtxVar targetName="Context_ElectronicPower_1"/>
+          </NodeInstance>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="High_Acc_Or_Speed" targetName="SSM_TR_Low_Acc_Or_Speed_High_Acc_Or_Speed_1_Low_Acc_Or_Speed_PowerManagement"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Breaking_And_Regenrative_State" targetName="SSM_TR_Low_Acc_Or_Speed_Breaking_And_Regenrative_State_2_Low_Acc_Or_Speed_PowerManagement"/>
+          </Fork>
+          <Fork priority="3">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Start_Off_State" targetName="SSM_TR_Low_Acc_Or_Speed_Start_Off_State_3_Low_Acc_Or_Speed_PowerManagement"/>
+          </Fork>
+        </State>
+        <State scadeName="Breaking_And_Regenrative_State" targetName="SSM_st_Breaking_And_Regenrative_State_PowerManagement">
+          <NodeInstance instName="2" refName="ElectronicPower" scadeName="ElectronicPower">
+            <OutCtxVar targetName="Context_ElectronicPower_2"/>
+          </NodeInstance>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Start_Off_State" targetName="SSM_TR_Breaking_And_Regenrative_State_Start_Off_State_1_Breaking_And_Regenrative_State_PowerManagement"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="High_Acc_Or_Speed" targetName="_3_SSM_TR_Breaking_And_Regenrative_State_High_Acc_Or_Speed_2_Breaking_And_Regenrative_State_PowerManagement"/>
+          </Fork>
+          <Fork priority="3">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Low_Acc_Or_Speed" targetName="_4_SSM_TR_Breaking_And_Regenrative_State_Low_Acc_Or_Speed_3_Breaking_And_Regenrative_State_PowerManagement"/>
+          </Fork>
+        </State>
+        <State scadeName="High_Acc_Or_Speed" targetName="SSM_st_High_Acc_Or_Speed_PowerManagement">
+          <NodeInstance instName="3" refName="ElectronicPower" scadeName="ElectronicPower">
+            <OutCtxVar targetName="Context_ElectronicPower_3"/>
+          </NodeInstance>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Low_Acc_Or_Speed" targetName="SSM_TR_High_Acc_Or_Speed_Low_Acc_Or_Speed_1_High_Acc_Or_Speed_PowerManagement"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Breaking_And_Regenrative_State" targetName="SSM_TR_High_Acc_Or_Speed_Breaking_And_Regenrative_State_2_High_Acc_Or_Speed_PowerManagement"/>
+          </Fork>
+          <Fork priority="3">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Start_Off_State" targetName="SSM_TR_High_Acc_Or_Speed_Start_Off_State_3_High_Acc_Or_Speed_PowerManagement"/>
+          </Fork>
+        </State>
+        <NextState inCtx="true" mem="true" targetName="PowerManagement_state_nxt"/>
+      </Automaton>
+      <NodeInstance instName="3" refName="DynamicControl" scadeName="DynamicControl">
+        <OutCtxVar targetName="Context_DynamicControl_3"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="BatteryLevel" scadeName="BatteryLevel">
+        <OutCtxVar targetName="Context_BatteryLevel_1"/>
+      </NodeInstance>
+      <Memory inCtx="true" targetName="PowerManagement_state_nxt" targetType="SSM_ST_PowerManagement"/>
+      <OutCtxType targetName="outC_HybridCar_SM"/>
+      <InCtxType targetName="inC_HybridCar_SM"/>
+    </RootNode>
+    <NoExpNode headerFile="ElectronicPower.h" scadeName="ElectronicPower" targetCycleFct="ElectronicPower" targetInitFct="ElectronicPower_reset" targetInitializationFct="ElectronicPower_init">
+      <Input scadeName="Vbattery" scadeType="float32" targetName="Vbattery" targetType="kcg_float32"/>
+      <Input scadeName="V1" scadeType="float32" targetName="V1" targetType="kcg_float32"/>
+      <Input scadeName="V2" scadeType="float32" targetName="V2" targetType="kcg_float32"/>
+      <Input scadeName="V3" scadeType="float32" targetName="V3" targetType="kcg_float32"/>
+      <Input scadeName="BatteryUsed" scadeType="bool" targetName="BatteryUsed" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="Vmot1" scadeType="float32" targetName="Vmot1" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Vmot2" scadeType="float32" targetName="Vmot2" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Vmot3" scadeType="float32" targetName="Vmot3" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="VBoost" scadeType="float32" targetName="VBoost" targetType="kcg_float32"/>
+      <NodeInstance instName="1" refName="Rectifier" scadeName="Rectifier">
+        <OutCtxVar targetName="Context_Rectifier_1"/>
+      </NodeInstance>
+      <NodeInstance instName="1" refName="BoostConverter" scadeName="BoostConverter"/>
+      <NodeInstance instName="1" refName="Inverter" scadeName="Inverter">
+        <OutCtxVar targetName="Context_Inverter_1"/>
+      </NodeInstance>
+      <OutCtxType targetName="outC_ElectronicPower"/>
+    </NoExpNode>
+    <NoExpNode headerFile="Rectifier.h" scadeName="Rectifier" targetCycleFct="Rectifier" targetInitFct="Rectifier_reset" targetInitializationFct="Rectifier_init">
+      <Input scadeName="V1" scadeType="float32" targetName="V1" targetType="kcg_float32"/>
+      <Input scadeName="V2" scadeType="float32" targetName="V2" targetType="kcg_float32"/>
+      <Input scadeName="V3" scadeType="float32" targetName="V3" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Vs" scadeType="float32" targetName="Vs" targetType="kcg_float32"/>
+      <FbyOp instName="1">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_1" targetType="struct_3674"/>
+      </FbyOp>
+      <FbyOp instName="2">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_2" targetType="struct_3664"/>
+      </FbyOp>
+      <FbyOp instName="3">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_3" targetType="struct_3654"/>
+      </FbyOp>
+      <FbyOp instName="4">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Fby inCtx="true" targetName="fby_4" targetType="struct_3648"/>
+      </FbyOp>
+      <FbyOp instName="5">
+        <Memory inCtx="true" targetName="_L3" targetType="kcg_float32"/>
+      </FbyOp>
+      <NodeInstance instName="1" refName="Max3_math_float32" scadeName="math::Max3"/>
+      <NodeInstance instName="2" refName="Max3_math_float32" scadeName="math::Max3"/>
+      <NodeInlining instName="1" scadeName="math::Max"/>
+      <Fby inCtx="true" targetName="fby_3" targetType="struct_3654"/>
+      <Fby inCtx="true" targetName="fby_4" targetType="struct_3648"/>
+      <Fby inCtx="true" targetName="fby_1" targetType="struct_3674"/>
+      <Fby inCtx="true" targetName="fby_2" targetType="struct_3664"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <Memory inCtx="true" targetName="_L3" targetType="kcg_float32"/>
+      <OutCtxType targetName="outC_Rectifier"/>
+    </NoExpNode>
+    <NoExpNode headerFile="BoostConverter.h" scadeName="BoostConverter" targetCycleFct="BoostConverter">
+      <Input scadeName="InterruptorConductionTime" scadeType="float32" targetName="InterruptorConductionTime" targetType="kcg_float32"/>
+      <Input scadeName="InterruptorLockingTime" scadeType="float32" targetName="InterruptorLockingTime" targetType="kcg_float32"/>
+      <Input scadeName="Vin" scadeType="float32" targetName="Vin" targetType="kcg_float32"/>
+      <Input scadeName="BatteryUsed" scadeType="bool" targetName="BatteryUsed" targetType="kcg_bool"/>
+      <Output scadeName="Vout" scadeType="float32" targetName="Vout" targetType="kcg_float32"/>
+      <NodeInstance instName="1" refName="Command" scadeName="Command"/>
+    </NoExpNode>
+    <NoExpNode headerFile="Command.h" scadeName="Command" targetCycleFct="Command">
+      <Input scadeName="InterruptorConductionTime" scadeType="float32" targetName="InterruptorConductionTime" targetType="kcg_float32"/>
+      <Input scadeName="InterruptorLockingTime" scadeType="float32" targetName="InterruptorLockingTime" targetType="kcg_float32"/>
+      <Output scadeName="Alpha" scadeType="float32" targetName="Alpha" targetType="kcg_float32"/>
+    </NoExpNode>
+    <NoExpNode headerFile="Inverter.h" scadeName="Inverter" targetCycleFct="Inverter" targetInitFct="Inverter_reset" targetInitializationFct="Inverter_init">
+      <Input scadeName="Vac" scadeType="float32" targetName="Vac" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="V3" scadeType="float32" targetName="V3" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="V2" scadeType="float32" targetName="V2" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="V1" scadeType="float32" targetName="V1" targetType="kcg_float32"/>
+      <NodeInstance instName="2" refName="ThreePhaseConverter" scadeName="ThreePhaseConverter">
+        <OutCtxVar targetName="Context_ThreePhaseConverter_2"/>
+      </NodeInstance>
+      <OutCtxType targetName="outC_Inverter"/>
+    </NoExpNode>
+    <NoExpNode headerFile="ThreePhaseConverter.h" scadeName="ThreePhaseConverter" targetCycleFct="ThreePhaseConverter" targetInitFct="ThreePhaseConverter_reset" targetInitializationFct="ThreePhaseConverter_init">
+      <Input scadeName="Vac" scadeType="float32" targetName="Vac" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="K1" scadeType="bool" targetName="K1" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="K2" scadeType="bool" targetName="K2" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="K3" scadeType="bool" targetName="K3" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="notK1" scadeType="bool" targetName="notK1" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="notK2" scadeType="bool" targetName="notK2" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="notK3" scadeType="bool" targetName="notK3" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="V12" scadeType="float32" targetName="V12" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="V23" scadeType="float32" targetName="V23" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="V31" scadeType="float32" targetName="V31" targetType="kcg_float32"/>
+      <NodeInstance instName="1" refName="ModCount" scadeName="ModCount">
+        <OutCtxVar targetName="Context_ModCount_1"/>
+      </NodeInstance>
+      <ActivateIf scadeName="PhaseCalculator">
+        <Else>
+          <Else>
+            <Else>
+              <Else>
+                <Else/>
+                <Then/>
+              </Else>
+              <Then/>
+            </Else>
+            <Then/>
+          </Else>
+          <Then/>
+        </Else>
+        <Then/>
+      </ActivateIf>
+      <InitOp instName="1"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_ThreePhaseConverter"/>
+    </NoExpNode>
+    <NoExpNode headerFile="ModCount.h" scadeName="ModCount" targetCycleFct="ModCount" targetInitFct="ModCount_reset" targetInitializationFct="ModCount_init">
+      <Output inCtx="true" scadeName="Count" scadeType="int" targetName="Count" targetType="_2_int"/>
+      <FbyOp instName="1">
+        <Memory inCtx="true" targetName="_L5" targetType="kcg_int8"/>
+      </FbyOp>
+      <Memory inCtx="true" targetName="_L5" targetType="kcg_int8"/>
+      <OutCtxType targetName="outC_ModCount"/>
+    </NoExpNode>
+    <NoExpNode headerFile="DynamicControl.h" scadeName="DynamicControl" targetCycleFct="DynamicControl" targetInitFct="DynamicControl_reset" targetInitializationFct="DynamicControl_init">
+      <Input scadeName="Breaking_Input" scadeType="float32" targetName="Breaking_Input" targetType="kcg_float32"/>
+      <Input scadeName="Accelarator_Input" scadeType="float32" targetName="Accelarator_Input" targetType="kcg_float32"/>
+      <Input scadeName="PriviousSpeed" scadeType="float32" targetName="PriviousSpeed" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Accelaration" scadeType="float32" targetName="Accelaration" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="Deaccelaration" scadeType="float32" targetName="Deaccelaration" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="CurrentSpeed" scadeType="float32" targetName="CurrentSpeed" targetType="kcg_float32"/>
+      <NodeInstance instName="1" refName="Limiter" scadeName="Limiter"/>
+      <NodeInstance instName="2" refName="Limiter" scadeName="Limiter"/>
+      <NodeInstance instName="3" refName="Shaper" scadeName="Shaper">
+        <OutCtxVar targetName="Context_Shaper_3"/>
+      </NodeInstance>
+      <NodeInstance instName="4" refName="Shaper" scadeName="Shaper">
+        <OutCtxVar targetName="Context_Shaper_4"/>
+      </NodeInstance>
+      <InitOp instName="1"/>
+      <InitOp instName="2"/>
+      <NodeInstance instName="3" refName="Limiter" scadeName="Limiter"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_DynamicControl"/>
+    </NoExpNode>
+    <NoExpNode headerFile="Limiter.h" scadeName="Limiter" targetCycleFct="Limiter">
+      <Input scadeName="LUS_Input" scadeType="float32" targetName="LUS_Input" targetType="kcg_float32"/>
+      <Input scadeName="HighLimit" scadeType="float32" targetName="HighLimit" targetType="kcg_float32"/>
+      <Input scadeName="LowLimit" scadeType="float32" targetName="LowLimit" targetType="kcg_float32"/>
+      <Output scadeName="LUS_Output" scadeType="float32" targetName="LUS_Output" targetType="kcg_float32"/>
+      <Assume scadeName="A1" targetName=""/>
+    </NoExpNode>
+    <NoExpNode headerFile="Shaper.h" scadeName="Shaper" targetCycleFct="Shaper" targetInitFct="Shaper_reset" targetInitializationFct="Shaper_init">
+      <Input scadeName="RL_Input" scadeType="float32" targetName="RL_Input" targetType="kcg_float32"/>
+      <Input scadeName="deltaT" scadeType="float32" targetName="deltaT" targetType="kcg_float32"/>
+      <Input scadeName="Falling" scadeType="float32" targetName="Falling" targetType="kcg_float32"/>
+      <Input scadeName="Rising" scadeType="float32" targetName="Rising" targetType="kcg_float32"/>
+      <Output inCtx="true" scadeName="RL_Output" scadeType="float32" targetName="RL_Output" targetType="kcg_float32"/>
+      <FbyOp instName="1">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="RL_Output" targetType="kcg_float32"/>
+      </FbyOp>
+      <Assume scadeName="A1" targetName=""/>
+      <Memory inCtx="true" targetName="RL_Output" targetType="kcg_float32"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_Shaper"/>
+    </NoExpNode>
+    <NoExpNode headerFile="BatteryLevel.h" scadeName="BatteryLevel" targetCycleFct="BatteryLevel" targetInitFct="BatteryLevel_reset" targetInitializationFct="BatteryLevel_init">
+      <Input scadeName="Vboost" scadeType="float32" targetName="Vboost" targetType="kcg_float32"/>
+      <Input scadeName="Vb" scadeType="float32" targetName="Vb" targetType="kcg_float32"/>
+      <Input scadeName="BU" scadeType="bool" targetName="BU" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="BatteryLevel" scadeType="float32" targetName="BatteryLevel" targetType="kcg_float32"/>
+      <FbyOp instName="2">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="BatteryLevel" targetType="kcg_float32"/>
+      </FbyOp>
+      <FbyOp instName="1">
+        <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+        <Memory inCtx="true" targetName="BatteryLevel" targetType="kcg_float32"/>
+      </FbyOp>
+      <Memory inCtx="true" targetName="BatteryLevel" targetType="kcg_float32"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_BatteryLevel"/>
+    </NoExpNode>
+    <Package scadeName="math">
+      <ExpNode scadeName="Max"/>
+      <NoExpNode headerFile="Max3_math_float32.h" scadeName="Max3" targetCycleFct="Max3_math_float32">
+        <Input scadeName="I1" scadeType="float32" targetName="I1_float32" targetType="kcg_float32"/>
+        <Input scadeName="I2" scadeType="float32" targetName="I2_float32" targetType="kcg_float32"/>
+        <Input scadeName="I3" scadeType="float32" targetName="I3_float32" targetType="kcg_float32"/>
+        <Output scadeName="Ma3_Output" scadeType="float32" targetName="Ma3_Output" targetType="kcg_float32"/>
+      </NoExpNode>
+    </Package>
+    <StructType targetCompFct="kcg_comp_struct_3648" targetCopyFct="kcg_copy_struct_3648" targetName="struct_3648">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float32_2" targetName="items" targetType="array_float32_2"/>
+    </StructType>
+    <StructType targetCompFct="kcg_comp_struct_3654" targetCopyFct="kcg_copy_struct_3654" targetName="struct_3654">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float32_3" targetName="items" targetType="array_float32_3"/>
+    </StructType>
+    <StructType targetCompFct="kcg_comp_struct_3664" targetCopyFct="kcg_copy_struct_3664" targetName="struct_3664">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float32_4" targetName="items" targetType="array_float32_4"/>
+    </StructType>
+    <StructType targetCompFct="kcg_comp_struct_3674" targetCopyFct="kcg_copy_struct_3674" targetName="struct_3674">
+      <Field scadeName="idx" scadeType="kcg_size" targetName="idx" targetType="kcg_size"/>
+      <Field scadeName="items" scadeType="array_float32_5" targetName="items" targetType="array_float32_5"/>
+    </StructType>
+    <ArrayType cellType="kcg_float32" size="4" targetCompFct="kcg_comp_array_float32_4" targetCopyFct="kcg_copy_array_float32_4" targetName="array_float32_4"/>
+    <ArrayType cellType="kcg_float32" size="3" targetCompFct="kcg_comp_array_float32_3" targetCopyFct="kcg_copy_array_float32_3" targetName="array_float32_3"/>
+    <ArrayType cellType="kcg_float32" size="5" targetCompFct="kcg_comp_array_float32_5" targetCopyFct="kcg_copy_array_float32_5" targetName="array_float32_5"/>
+    <ArrayType cellType="kcg_float32" size="2" targetCompFct="kcg_comp_array_float32_2" targetCopyFct="kcg_copy_array_float32_2" targetName="array_float32_2"/>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

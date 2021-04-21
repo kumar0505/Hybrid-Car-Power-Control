@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/Hybrid_Car/KCG/config.txt
+** Generation date: 2020-06-09T13:14:51
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="D:/Hybrid_Car/KCG/scade_model_without_unused.scade"/>
+    <option name="probes" value="#off#"/>
+    <option name="debug" value="#off#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="D:/Hybrid_Car/KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="DynamicControl"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <constant id="14" name="Gain" imported="false" type="11"/>
+    <operator id="15" name="DynamicControl" imported="false" root="true" expanded="false">
+      <input id="16" name="Breaking_Input" clock="false" type="11"/>
+      <input id="17" name="Accelarator_Input" clock="false" type="11"/>
+      <input id="18" name="PriviousSpeed" clock="false" type="11"/>
+      <output id="19" name="Accelaration" clock="false" type="11"/>
+      <output id="20" name="Deaccelaration" clock="false" type="11"/>
+      <output id="21" name="CurrentSpeed" clock="false" type="11"/>
+      <instance id="22" name="1" op="29" expanded="false"/>
+      <instance id="23" name="2" op="29" expanded="false"/>
+      <instance id="24" name="3" op="35" expanded="false"/>
+      <instance id="25" name="4" op="35" expanded="false"/>
+      <arrow id="26" name="1"/>
+      <arrow id="27" name="2"/>
+      <instance id="28" name="3" op="29" expanded="false"/>
+    </operator>
+    <operator id="29" name="Limiter" imported="false" root="false" expanded="false">
+      <input id="30" name="LUS_Input" clock="false" type="11"/>
+      <input id="31" name="HighLimit" clock="false" type="11"/>
+      <input id="32" name="LowLimit" clock="false" type="11"/>
+      <output id="33" name="LUS_Output" clock="false" type="11"/>
+      <assume id="34" name="A1"/>
+    </operator>
+    <operator id="35" name="Shaper" imported="false" root="false" expanded="false">
+      <input id="36" name="RL_Input" clock="false" type="11"/>
+      <input id="37" name="deltaT" clock="false" type="11"/>
+      <input id="38" name="Falling" clock="false" type="11"/>
+      <input id="39" name="Rising" clock="false" type="11"/>
+      <output id="40" name="RL_Output" clock="false" type="11"/>
+      <fby id="41" name="1"/>
+      <assume id="42" name="A1"/>
+    </operator>
+  </model>
+  <generated>
+    <c>
+      <file id="43" name="DynamicControl.h">
+        <function id="44" name="DynamicControl_init">
+          <parameter id="45" name="outC" type="51" pointer="true"/>
+        </function>
+        <function id="46" name="DynamicControl_reset">
+          <parameter id="47" name="outC" type="51" pointer="true"/>
+        </function>
+        <function id="48" name="DynamicControl">
+          <parameter id="49" name="inC" type="58" pointer="true"/>
+          <parameter id="50" name="outC" type="51" pointer="true"/>
+        </function>
+        <struct id="51" name="outC_DynamicControl">
+          <field id="52" name="Accelaration" type="115" pointer="false"/>
+          <field id="53" name="Deaccelaration" type="115" pointer="false"/>
+          <field id="54" name="CurrentSpeed" type="115" pointer="false"/>
+          <field id="55" name="init" type="116" pointer="false"/>
+          <field id="56" name="Context_Shaper_3" type="73" pointer="false"/>
+          <field id="57" name="Context_Shaper_4" type="73" pointer="false"/>
+        </struct>
+        <struct id="58" name="inC_DynamicControl">
+          <field id="59" name="Breaking_Input" type="115" pointer="false"/>
+          <field id="60" name="Accelarator_Input" type="115" pointer="false"/>
+          <field id="61" name="PriviousSpeed" type="115" pointer="false"/>
+        </struct>
+      </file>
+      <file id="62" name="Shaper.h">
+        <function id="63" name="Shaper_init">
+          <parameter id="64" name="outC" type="73" pointer="true"/>
+        </function>
+        <function id="65" name="Shaper_reset">
+          <parameter id="66" name="outC" type="73" pointer="true"/>
+        </function>
+        <function id="67" name="Shaper">
+          <parameter id="68" name="RL_Input" type="115" pointer="false"/>
+          <parameter id="69" name="deltaT" type="115" pointer="false"/>
+          <parameter id="70" name="Falling" type="115" pointer="false"/>
+          <parameter id="71" name="Rising" type="115" pointer="false"/>
+          <parameter id="72" name="outC" type="73" pointer="true"/>
+        </function>
+        <struct id="73" name="outC_Shaper">
+          <field id="74" name="RL_Output" type="115" pointer="false"/>
+          <field id="75" name="init" type="116" pointer="false"/>
+        </struct>
+      </file>
+      <file id="76" name="Limiter.h">
+        <function id="77" name="Limiter" returnType="115">
+          <parameter id="78" name="LUS_Input" type="115" pointer="false"/>
+          <parameter id="79" name="HighLimit" type="115" pointer="false"/>
+          <parameter id="80" name="LowLimit" type="115" pointer="false"/>
+        </function>
+      </file>
+      <file id="81" name="kcg_types.h">
+        <macro id="82" name="kcg_assign_array"/>
+        <macro id="83" name="kcg_assign_struct"/>
+        <macro id="84" name="kcg_lnot_uint8"/>
+        <macro id="85" name="kcg_lnot_uint16"/>
+        <macro id="86" name="kcg_lnot_uint32"/>
+        <macro id="87" name="kcg_lnot_uint64"/>
+        <macro id="88" name="kcg_lsl_uint8"/>
+        <macro id="89" name="kcg_lsl_uint16"/>
+        <macro id="90" name="kcg_lsl_uint32"/>
+        <macro id="91" name="kcg_lsl_uint64"/>
+        <macro id="92" name="kcg_true"/>
+        <macro id="93" name="kcg_false"/>
+        <macro id="94" name="kcg_lit_int8"/>
+        <macro id="95" name="kcg_lit_int16"/>
+        <macro id="96" name="kcg_lit_int32"/>
+        <macro id="97" name="kcg_lit_int64"/>
+        <macro id="98" name="kcg_lit_uint8"/>
+        <macro id="99" name="kcg_lit_uint16"/>
+        <macro id="100" name="kcg_lit_uint32"/>
+        <macro id="101" name="kcg_lit_uint64"/>
+        <macro id="102" name="kcg_lit_size"/>
+        <macro id="103" name="kcg_lit_float64"/>
+        <macro id="104" name="kcg_lit_float32"/>
+        <predefType id="105" name="kcg_int8"/>
+        <predefType id="106" name="kcg_int16"/>
+        <predefType id="107" name="kcg_int32"/>
+        <predefType id="108" name="kcg_int64"/>
+        <predefType id="109" name="kcg_uint8"/>
+        <predefType id="110" name="kcg_uint16"/>
+        <predefType id="111" name="kcg_uint32"/>
+        <predefType id="112" name="kcg_uint64"/>
+        <predefType id="113" name="kcg_size"/>
+        <predefType id="114" name="kcg_float64"/>
+        <predefType id="115" name="kcg_float32"/>
+        <predefType id="116" name="kcg_bool"/>
+        <predefType id="117" name="kcg_char"/>
+        <macro id="118" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="119" name="kcg_consts.h">
+        <macro id="120" name="Gain" type="115"/>
+      </file>
+      <file id="121" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="114" dstId="103" role="wrapped-lit"/>
+    <map srcId="115" dstId="104" role="wrapped-lit"/>
+    <map srcId="113" dstId="102" role="wrapped-lit"/>
+    <map srcId="112" dstId="101" role="wrapped-lit"/>
+    <map srcId="112" dstId="87" role="wrapped-lnot"/>
+    <map srcId="112" dstId="91" role="wrapped-lsl"/>
+    <map srcId="111" dstId="100" role="wrapped-lit"/>
+    <map srcId="111" dstId="86" role="wrapped-lnot"/>
+    <map srcId="111" dstId="90" role="wrapped-lsl"/>
+    <map srcId="110" dstId="99" role="wrapped-lit"/>
+    <map srcId="110" dstId="85" role="wrapped-lnot"/>
+    <map srcId="110" dstId="89" role="wrapped-lsl"/>
+    <map srcId="109" dstId="98" role="wrapped-lit"/>
+    <map srcId="109" dstId="84" role="wrapped-lnot"/>
+    <map srcId="109" dstId="88" role="wrapped-lsl"/>
+    <map srcId="108" dstId="97" role="wrapped-lit"/>
+    <map srcId="107" dstId="96" role="wrapped-lit"/>
+    <map srcId="106" dstId="95" role="wrapped-lit"/>
+    <map srcId="105" dstId="94" role="wrapped-lit"/>
+  </generated>
+  <map modelId="15" generatedId="45" role="context-parameter"/>
+  <map modelId="15" generatedId="44" role="init-method"/>
+  <map modelId="15" generatedId="47" role="context-parameter"/>
+  <map modelId="15" generatedId="46" role="reset-method"/>
+  <map modelId="15" generatedId="49" role="input-struct-parameter"/>
+  <map modelId="18" generatedId="61"/>
+  <map modelId="17" generatedId="60"/>
+  <map modelId="16" generatedId="59"/>
+  <map modelId="15" generatedId="58" role="input-struct-type"/>
+  <map modelId="15" generatedId="50" role="context-parameter"/>
+  <map modelId="25" generatedId="57"/>
+  <map modelId="24" generatedId="56"/>
+  <map modelId="26" generatedId="55" role="init"/>
+  <map modelId="27" generatedId="55" role="init"/>
+  <map modelId="21" generatedId="54"/>
+  <map modelId="20" generatedId="53"/>
+  <map modelId="19" generatedId="52"/>
+  <map modelId="15" generatedId="51" role="context-type"/>
+  <map modelId="15" generatedId="43" role="interface-file"/>
+  <map modelId="15" generatedId="48" role="cycle-method"/>
+  <map modelId="35" generatedId="64" role="context-parameter"/>
+  <map modelId="35" generatedId="63" role="init-method"/>
+  <map modelId="35" generatedId="66" role="context-parameter"/>
+  <map modelId="35" generatedId="65" role="reset-method"/>
+  <map modelId="39" generatedId="71"/>
+  <map modelId="38" generatedId="70"/>
+  <map modelId="37" generatedId="69"/>
+  <map modelId="36" generatedId="68"/>
+  <map modelId="35" generatedId="72" role="context-parameter"/>
+  <map modelId="41" generatedId="75" role="init"/>
+  <map modelId="40" generatedId="74"/>
+  <map modelId="41" generatedId="74" role="memory"/>
+  <map modelId="35" generatedId="73" role="context-type"/>
+  <map modelId="35" generatedId="62" role="interface-file"/>
+  <map modelId="35" generatedId="67" role="cycle-method"/>
+  <map modelId="32" generatedId="80"/>
+  <map modelId="31" generatedId="79"/>
+  <map modelId="30" generatedId="78"/>
+  <map modelId="29" generatedId="76" role="interface-file"/>
+  <map modelId="29" generatedId="77" role="cycle-method"/>
+  <map modelId="14" generatedId="120"/>
+  <map modelId="2" generatedId="117"/>
+  <map modelId="1" generatedId="116"/>
+  <map modelId="12" generatedId="114"/>
+  <map modelId="11" generatedId="115"/>
+  <map modelId="13" generatedId="113"/>
+  <map modelId="10" generatedId="112"/>
+  <map modelId="9" generatedId="111"/>
+  <map modelId="8" generatedId="110"/>
+  <map modelId="7" generatedId="109"/>
+  <map modelId="6" generatedId="108"/>
+  <map modelId="5" generatedId="107"/>
+  <map modelId="4" generatedId="106"/>
+  <map modelId="3" generatedId="105"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2020-06-09T13:14:51
+*************************************************************$-->
